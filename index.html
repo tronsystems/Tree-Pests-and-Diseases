@@ -18,7 +18,7 @@
           avatar_size: 32,
           count: 20
         }).bind("loaded", function() {
-          externalizeLinks();	            
+          //externalizeLinks();	            
           var ul = $(this).find(".tweet_list");
           var ticker = function() {
             setTimeout(function() {
@@ -45,20 +45,7 @@
 <script type="text/javascript" charset="utf-8">
 	    // Wait for Cordova to load
 	    //
-	    /*jQuery.noConflict();
-	    jQuery(document).ready(function() { 
-	    						jQuery(document).bind('deviceready', function(){
-    							onDeviceReady()
-  							})
-  							// Your main code
-						});
-	    */
 	    document.addEventListener("deviceready", onDeviceReady, false);
-	    /* jQuery(function($){ 
-	    	$(document).bind("mobileinit", function() {
-	       										$.mobile.phonegapNavigationEnabled = true;
-	    									});
-	    });*/
 	    // Cordova is ready
 	    //
 	    function onDeviceReady() {

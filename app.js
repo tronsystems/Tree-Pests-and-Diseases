@@ -188,7 +188,7 @@ function submitToServer(data, localid)
 {
 	 $.support.cors = true;
      //TODO add form validation here...
-     var jqxhr = $.post("http://80.177.75.100/XClients/CLIENT01/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
+     var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
@@ -229,12 +229,15 @@ function externalizeLinks()
 {
 	jQuery(function($){
 		$('a[href^=http]').each(function() {
-	       	if(this.href.indexOf(location.hostname) == -1) {
-	      		$(this).click(function(){
-	      			window.open(this.href);
-	      			return false;
-	      			});
-	       	}
+			//console.log("checking " + this.href);
+			$(this).attr("target", "_blank");
+			$(this).attr("rel", "external");
+	      	$(this).click(function(){
+	      		//alert("open external!");
+	      		navigator.app.loadUrl(this.href, {wait:2000, loadingDialog:"Please Wait, Loading External Link...", loadUrlTimeoutValue: 60000, openExternal:true } ); 
+	      		//window.open(this.href);
+	      		return false;
+	      	});
 	    });	
 	});
 	

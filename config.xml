@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.5">
+        version = "0.1.6">
     <name>Tree Disease</name>
 
     <description>
@@ -23,6 +23,8 @@
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
+    
+    <preference name="android-installLocation" value="preferExternal" />
 
     <icon src="icons/icon.png" />
     <icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
@@ -35,5 +37,9 @@
     <icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
     <icon src="icons/ios/icon-57.png" gap:platform="ios" width="114" height="114" />
     <icon src="icons/ios/icon-72.png" gap:platform="ios" width="144" height="144" />
+    
+    <gap:splash src="splash/ios/splashscreen_320.png" width="320" height="480" />
+	<gap:splash src="splash/ios/splashscreen_640.png" width="640" height="960" />
+	<gap:splash src="splash/ios/splashscreen_640.png" width="640" height="1136" />
     
 </widget>
