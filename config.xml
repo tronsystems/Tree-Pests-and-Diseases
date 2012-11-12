@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "com.tron.treediseases"
+        version = "0.1.1">
+    <name>Tree Diseases and Pests</name>
+
+    <description>
+        App for reporting tree diseases and pests.
+    </description>
+
+    <author href="http://phonegap.com" email="support@phonegap.com">
+        Tron Systems
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <feature name="http://api.phonegap.com/1.0/camera" />
+    <feature name="http://api.phonegap.com/1.0/network" />
+    <feature name="http://api.phonegap.com/1.0/file" />
+    <feature name="http://api.phonegap.com/1.0/geolocation" />
+
+    <preference name="phonegap-version" value="2.0.0" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="true" />
+
+    <icon src="assets/www/icons/icon.png" />
+    <icon src="assets/www/icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+    <icon src="assets/www/icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="assets/www/icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+    <icon src="assets/www/icons/android/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <icon src="assets/www/icons/blackberry/icon_45.png" gap:platform="blackberry" />
+    <icon src="assets/www/icons/blackberry/icon_45.png" gap:platform="blackberry" gap:state="hover"/>
+    <icon src="assets/www/icons/ios/icon-57.png" gap:platform="ios" width="57" height="57" />
+    <icon src="assets/www/icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="assets/www/icons/ios/icon-57.png" gap:platform="ios" width="114" height="114" />
+    <icon src="assets/www/icons/ios/icon-72.png" gap:platform="ios" width="144" height="144" />
+    
+</widget>

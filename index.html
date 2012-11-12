@@ -1,13 +1,14 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-	<title>Chalara fraxinea</title> 
+	<title>Tree Diseases & Pests</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="css/fc.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 	<script language="javascript" src="js/jquery.tweet.js" type="text/javascript"></script> 
 	<script type='text/javascript'>
 		jQuery(function($){
@@ -39,31 +40,43 @@
 ***********************************************/
 
 </script>
+<script type="text/javascript" charset="utf-8">
+	    // Wait for Cordova to load
+	    //
+	    document.addEventListener("deviceready", onDeviceReady, false);
+	
+	    // Cordova is ready
+	    //
+	    function onDeviceReady() {
+	        // Add anything here that depends on phonegap being available.
+	        navigator.splashscreen.hide();
+	    	document.addEventListener("online", submitLocalReports, false);
+	    }
+	</script>
 </head> 
 <body> 
 <div data-role="page">
 
-	<div data-role="header" class="logoh">
-		<h1>Chalara</h1>
-	</div><!-- /header -->
-
-	<div data-role="content">	
-		<h2 style="margin-top:0">Chalara fraxinea<br>
-		<span style="font-size:50%">(Ash Dieback)</apan></h2>
-		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_03.jpg" style="width:18%" data-magnifyby="5">
-		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_25.jpg" style="width:18%" data-magnifyby="5">
-		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_44.jpg" style="width:18%" data-magnifyby="5">
-		<img  class="magnify" src="images/image_1233_2012_11_02_11_27_13.jpg" style="width:18%" data-magnifyby="5">
-		<img  class="magnify" src="images/image_1233_2012_11_02_11_27_00.jpg" style="width:18%" data-magnifyby="5">
-		<p>
-		Chalara dieback of ash is a serious disease of ash trees caused by a fungus 
-		called <em>Chalara fraxinea</em>. The disease causes leaf loss and crown dieback in affected 
-		trees, and it can kill trees.</p>
-		<p>
-		You&#39;ll find information below on how to prevent spreading the disease, identifying 
-		ash trees, spotting signs of the disease, details on how to report any sightings.
-		</p>
-		<a href="form.html" data-role="button" data-icon="star">Report a Sighting</a> 
+	<!-- <div data-role="header" class="logoh">
+		<h1>Tree Diseases & Pests</h1>
+	</div> --><!-- /header -->
+	<div style="width:100%; background-color:#ffffff; text-align:center">
+		<img src="images/fc2.png" style="">
+	</div>
+	<img src="images/chalara.jpg" style="width:100%">
+	<div data-role="content" style="padding-top:0">	
+	<a href="form.html" data-ajax=false data-role="button" data-icon="star">Report a Sighting</a> 
+	<h2>Tree Disease and Pest Reporter</h2>
+	<p>Please report sightings of tree diseases and pests to help contain their spread.</p> 
+	<p>The Forestry Commission is the government department responsible for the protection and 
+	expansion of Britain's forests and woodlands.</p> 
+	<p>Our main focus at present is on <a href="disease_chalara.html">'Ash Dieback' (Chalara 
+	fraxinea)</a> but you may also 
+	report sightings of other diseases and pests such 
+	as <a href="disease_phytophthora.html">'Sudden Oak Death'</a> or 
+	the 'Oak Processionary Moth'.
+		
+		<a href="form.html" data-ajax=false data-role="button" data-icon="star">Report a Sighting</a> 
 		
 		<div id="twitter" style="display:none">
 		<h3>Latest Twitter News</h3>
@@ -87,7 +100,8 @@
 		
 		<h3>Help and Links</h2>
 		<ul data-role="listview" data-inset="true">
-			<li><a href="ashident.html">Identifying Ash Trees</a></li>
+			<li><a href="diseases.html">Diseases &amp; Pests</a></li>
+			<li><a href="trees.html">Identifying Trees</a></li>
 			<li><a href="visitwood.html">Visiting Woods</a></li>
 			<li><a href="http://www.forestry.gov.uk">Visit Our Website</a></li>
 		</ul>

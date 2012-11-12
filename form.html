@@ -4,142 +4,145 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
 		<link rel="stylesheet" href="css/fc.min.css" />
 		<link rel="stylesheet" href="css/app.css" />
+
 		<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/jquery.validate.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 		<script type="text/javascript" charset="utf-8">
 			// Wait for Cordova to load
 		    //
 		    document.addEventListener("deviceready", onDeviceReady, false);
-		
+		    
 		    // Cordova is ready
 		    //
 		    function onDeviceReady() {
 		    	//set default values
-		    	getLocnGPS();
-		    	var dte = new Date();
-		    	var timestamp = dte.toString();
-		    	$('#datetimereported').val(timestamp);
+		    	console.log("Device ready");
+		    	setupLocalStorage();
+				initForm();
+				document.addEventListener("online", submitLocalReports, false);
+				//Form validation...
+				$("#form1").validate({
+					errorPlacement: function(error, element) {
+						if (element.attr("name") === "diseasecommonname" || element.attr("name") === "treespecies") {
+							error.insertAfter($(element).parent());
+						} else {
+							error.insertAfter(element);
+						}
+				 	},
+				 	submitHandler: function( form ) {
+					 	data = $(form).serialize();
+						storeReport(data);
+						return false;
+				    },
+				    ignore: []
+				});
 	    		//Form submission...
-	    		$('#form1').submit(function() {  
-	    			var networkState = navigator.network.connection.type;
-	    			var states = {};
-	    	        states[Connection.UNKNOWN]  = 'Unknown connection';
-	    	        states[Connection.ETHERNET] = 'Ethernet connection';
-	    	        states[Connection.WIFI]     = 'WiFi connection';
-	    	        states[Connection.CELL_2G]  = 'Cell 2G connection';
-	    	        states[Connection.CELL_3G]  = 'Cell 3G connection';
-	    	        states[Connection.CELL_4G]  = 'Cell 4G connection';
-	    	        states[Connection.NONE]     = 'No network connection';
-	    	        
-	    	        data = $(this).serialize();
-	    	        
-	    	        if (networkState == Connection.NONE)
-	    	        {
-	    	        	alert("No connection available, store offline for later submission...");
-	    	        	storeInDatabase(data);
-	    	        } else {
-		    	        alert('Connection type: ' + states[networkState] + ' (' + networkState + ')');	
-		    	        alert(data);
-		    	        submitToServer(data);
-	    	        }
-	    	        return false;
-	    		});
-		    }
-		    
-			// onError Callback receives a PositionError object
-	    	//
-	    	function onGPSError(error) {
-				//Carry on without device specified location...
-	    	    alert('code: '    + error.code    + '\n' +
-	    	          'message: ' + error.message + '\n');
-	    	}
-
-			function onGPSSuccess(position) {
-				 $('#locationgpslat').val(position.coords.latitude);
-				 $('#locationgpslng').val(position.coords.longitude);
-				 $('#gpslat').show();
-				 $('#gpslat').show();
-				 $('#locnname').hide();
-				 $('#locnpcode').hide();
-			}
-		    function getLocnGPS()
-		    {
-		    	navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError);
-		    }
-		    
-		    function submitToServer(data)
-		    {
-		    	 $.support.cors = true;
-	    	     $.post("http://bowmore.liv.tronsystems.co.uk/Dev/Forestry/TreeDisease.nsf/TreeDiseaseReport?CreateDocument", data);
-		    }
-		    function storeInDatabase(data)
-		    {
-		    	alert("Not done this yet!");
+	    		/*$('#form1').submit(
+	    					function(){
+	    						data = $(this).serialize();
+	    						storeReport(data);
+	    						return false;
+	    					}
+	    		);*/
+	    		
 		    }
     	</script>
 	</head>
     <body>
-    
     	<div data-role="header" class="logoh">
-    		<a href="index.html" data-icon="delete">Cancel</a>
+    		<a href="index.html" data-rel="back" data-icon="back" data-iconpos="notext" data-direction="reverse">Home</a>
 			<h1>New Sighting</h1>
 		</div><!-- /header -->
 		<div id='content_container' data-role="content">
+			<div id="counts"></div>
+		    	Your personal details and the additional information are optional 
+		    	but please complete as much as possible.
 			<form id="form1" action="" method="POST">
-				<div data-role="fieldcontain" id="locnname">
-					<label for="locationname">Wood/ Location:</label>
-					<input type="text" name="locationname" id="locationname" />
-				</div>
+    			<div>			
+					<div data-role="fieldcontain">
+						<label for="contactname">Your Name:</label>
+						<input type="text" name="contactname" id="contactname" />
+					</div>
 				
-				<div data-role="fieldcontain" id="locnpcode">	
-					<label for="locationpostcode">Postcode:</label>
-					<input type="text" name="locationpostcode" id="locationpostcode" />	
-				</div>
+					<div data-role="fieldcontain">	
+						<label for="contactemail">Your Email:</label>
+						<input type="email" name="contactemail" id="contactemail" />
+					</div>
+    			</div>
+
+    			<div>
+					<div data-role="fieldcontain" id="locnname" style="display:none;">
+						<label for="locationname">Wood/ Location:</label>
+						<input type="text" name="locationname" id="locationname" />
+					</div>
 				
-				<div data-role="fieldcontain" id="gpslat" style="display:none;">
-					<label for="locationgpslat">Latitude:</label>
-					<input type="text" readonly name="locationgpslat" id="locationgpslat" />
-				</div>
-				<div data-role="fieldcontain" id="gpslng" style="display:none;">
-					<label for="locationgpslng">Longitude:</label>
-					<input type="text" readonly name="locationgpslng" id="locationgpslng" />
-				</div>
+					<div data-role="fieldcontain" id="locnpcode" style="display:none;">	
+						<label for="locationpostcode">Postcode:</label>
+						<input type="text" name="locationpostcode" id="locationpostcode" />	
+					</div>
 				
-				<div data-role="fieldcontain">
-					<label for="treespecies" class="select">Tree Species:</label>
-					<select name="treespecies" id="treespecies">
-					   <option value="Ash" selected>Ash</option>
-					   <option value="Oak">Oak</option>
-					</select>
-				</div>
+					<div data-role="fieldcontain" id="gpslatlng" style="display:none;"></div>
 				
-				<div data-role="fieldcontain">	
-					<label for="diseasecommonname" class="select">Disease:</label>
-					<select name="diseasecommonname" id="diseasecommonname">
-					   <option value="Ash die-back" selected>Ash die-back</option>
-					   <option value="Sudden oak death">Sudden oak death</option>
-					</select>
-				</div>
+					<div data-role="fieldcontain">
+						<label for="treespecies" class="select">Tree Species:</label>
+						<select name="treespecies" id="treespecies" class="required">
+							<option value="" data-placeholder="true">Select...</option>
+					   		<option value="Ash">Ash</option>
+					   		<option value="Oak">Oak</option>
+					   		<option value="Other">Other</option>
+						</select>
+					</div>
 				
-				<div data-role="fieldcontain">
-					<label for="contactname">Name:</label>
-					<input type="text" name="contactname" id="contactname" />
-				</div>
+					<div data-role="fieldcontain">	
+						<label for="diseasecommonname" class="select">Disease:</label>
+						<select name="diseasecommonname" id="diseasecommonname" class="required">
+							<option value="" data-placeholder="true">Select...</option>
+						   	<option value="Ash dieback">Ash dieback</option>
+						   	<option value="Sudden oak death">Sudden oak death</option>
+						   	<option value="Other">Other</option>
+						</select>
+					</div>
 				
-				<div data-role="fieldcontain">	
-					<label for="contactemail">Email:</label>
-					<input type="email" name="contactemail" id="contactemail" />
-				</div>
-				
-				<input name="datetimereported" id="datetimereported" type="hidden" />
+					<input type="hidden" name="datetimereported" id="datetimereported" />
+					<input type="hidden" name="deviceid" id="deviceid" />
+					<input type="hidden" name="locationgpslat" id="locationgpslat" />
+					<input type="hidden" name="locationgpslng" id="locationgpslng" />
+	    		</div>
+				<div data-role="collapsible-set">
+					<div data-role="collapsible">
+    					<h3><a href="#">Additional Information</a></h3>
+    					<div>			
+							<div data-role="fieldcontain">
+								<label for="locationdetails">Details of Location:</label>
+								<input type="text" name="locationdetails" id="locationdetails" />
+							</div>
+							<div data-role="fieldcontain">	
+								<label for="diseasesymptoms">Symptoms:</label>
+								<input type="text" name="diseasesymptoms" id="diseasesymptoms" />
+							</div>
+							<div data-role="fieldcontain">	
+								<label for="diseasesymptondistribution">Distribution of Symptoms on Tree:</label>
+								<input type="text" name="diseasesymptondistribution" id="diseasesymptondistribution" />
+							</div>
+							<div data-role="fieldcontain">	
+								<label for="diseasetreedistribution">Distribution of Suspect Trees:</label>
+								<input type="text" name="diseasetreedistribution" id="diseasetreedistribution" />
+							</div>
+    					</div>
+    				</div>
+    			</div>				
 				<div data-role="fieldcontain">
 					<label for="sub"></label>
 					<input name="sub" id="sub" type="submit" value="Submit" />
 				</div>
+				
 				<div style="text-align:center">
-				<a href="privacy.html">How we use this data</a>
+					<a href="privacy.html">How we use this data</a>
 				</div>
+				
 			</form> 
 		</div>
     </body>

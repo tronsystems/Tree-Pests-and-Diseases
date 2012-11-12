@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>Chalara fraxinea</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="css/fc.min.css" />
+	<link rel="stylesheet" href="css/app.css" />
+	<script src="js/jquery-1.8.2.min.js"></script>
+	<script src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script language="javascript" src="js/jquery.tweet.js" type="text/javascript"></script> 
+	<script type='text/javascript'>
+		jQuery(function($){
+        $("#ticker").tweet({
+          username: "treepestnews",
+          page: 1,
+          avatar_size: 32,
+          count: 20
+        }).bind("loaded", function() {
+          var ul = $(this).find(".tweet_list");
+          var ticker = function() {
+            setTimeout(function() {
+              ul.find('li:first').animate( {marginTop: '-4em'}, 500, function() {
+                $(this).detach().appendTo(ul).removeAttr('style');
+              });
+              ticker();
+            }, 5000);
+          };
+          ticker();
+        });
+      });
+	</script>
+	<script type="text/javascript" src="./js/jquery.magnifier.js">
+
+/***********************************************
+* jQuery Image Magnify- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
+***********************************************/
+
+</script>
+</head> 
+<body> 
+<div data-role="page">
+	<div data-role="header" class="logoh">
+		<h1>Chalara</h1>
+		<a href="./index.html" data-rel="back" data-icon="back" data-iconpos="notext" data-direction="reverse">Home</a>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<h2 style="margin-top:0">Chalara fraxinea<br>
+		<span style="font-size:50%">(Ash Dieback)</apan></h2>
+		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_03.jpg" style="width:18%" data-magnifyby="5">
+		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_25.jpg" style="width:18%" data-magnifyby="5">
+		<img  class="magnify" src="images/image_1233_2012_11_02_11_26_44.jpg" style="width:18%" data-magnifyby="5">
+		<img  class="magnify" src="images/image_1233_2012_11_02_11_27_13.jpg" style="width:18%" data-magnifyby="5">
+		<img  class="magnify" src="images/image_1233_2012_11_02_11_27_00.jpg" style="width:18%" data-magnifyby="5">
+		<p>
+		Chalara dieback of ash is a serious disease of ash trees caused by a fungus 
+		called <em>Chalara fraxinea</em>. The disease causes leaf loss and crown dieback in affected 
+		trees, and it can kill trees.  You&#39;ll find information below on how to spot signs of the disease.</p>
+		<p>
+		<ul>
+			<li>Diseased saplings typically display dead tops and/or side shoots.</li>
+			<li>At the base of dead side shoots, lesions can often be found on the 
+			subtending branch or stem.</li>
+			<li>Lesions which girdle the branch or stem can cause wilting of the foliage above.</li>
+			<li>Mature trees affected by the disease initially display dieback of the shoots and 
+			twigs at the periphery of their crowns. Dense clumps of foliage
+			may be seen further back on branches where recovery shoots are produced.</li>
+			<li>In late summer and early autumn (July to October), fruiting bodies of 
+			Hymenoscyphus can be found on blackened rachises (leaf stalks) of ash in 
+			damp areas of leaf litter beneath trees. These do not necessarily belong to 
+			the pathogen but can be tested to determine their identity.</li>
+		</ul>
+		</p>
+		<a href="form.html" data-ajax=false data-role="button" data-icon="star">Report a Sighting</a> 
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
+</html>
