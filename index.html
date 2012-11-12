@@ -18,6 +18,7 @@
           avatar_size: 32,
           count: 20
         }).bind("loaded", function() {
+          externalizeLinks();	            
           var ul = $(this).find(".tweet_list");
           var ticker = function() {
             setTimeout(function() {
@@ -30,6 +31,7 @@
           ticker();
         });
       });
+		
 	</script>
 	<script type="text/javascript" src="js/jquery.magnifier.js">
 
@@ -43,8 +45,20 @@
 <script type="text/javascript" charset="utf-8">
 	    // Wait for Cordova to load
 	    //
+	    /*jQuery.noConflict();
+	    jQuery(document).ready(function() { 
+	    						jQuery(document).bind('deviceready', function(){
+    							onDeviceReady()
+  							})
+  							// Your main code
+						});
+	    */
 	    document.addEventListener("deviceready", onDeviceReady, false);
-	
+	    /* jQuery(function($){ 
+	    	$(document).bind("mobileinit", function() {
+	       										$.mobile.phonegapNavigationEnabled = true;
+	    									});
+	    });*/
 	    // Cordova is ready
 	    //
 	    function onDeviceReady() {
@@ -52,7 +66,7 @@
 	        navigator.splashscreen.hide();
 	    	document.addEventListener("online", submitLocalReports, false);
 	    }
-	</script>
+</script>
 </head> 
 <body> 
 <div data-role="page">
@@ -101,7 +115,7 @@
 		<h3>Help and Links</h2>
 		<ul data-role="listview" data-inset="true">
 			<li><a href="diseases.html">Diseases &amp; Pests</a></li>
-			<li><a href="trees.html">Identifying Trees</a></li>
+			<li><a href="trees.html">Identify Trees</a></li>
 			<li><a href="visitwood.html">Visiting Woods</a></li>
 			<li><a href="http://www.forestry.gov.uk">Visit Our Website</a></li>
 		</ul>
