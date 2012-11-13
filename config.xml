@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.9">
+        version = "0.1.10">
     <name>Tree Disease</name>
 
     <description>
@@ -27,7 +27,7 @@
     <preference name="android-installLocation" value="preferExternal" />
 
 	<!-- For iPhone only - remove for Android build -->
-	<access origin="*" />
+	<!-- <access origin="*" /> -->
     <!-- ******************** -->
 
     <icon src="icons/icon.png" />
