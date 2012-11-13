@@ -174,11 +174,9 @@ function storeReport(data) {
     
     if (networkState == Connection.NONE)
     {
-    	//alert("No connection available, store offline for later submission...");
     	storeLocal(data);
+    	window.location.href = 'index.html';
     } else {
-        //alert('Connection type: ' + networkState');	
-        //alert(data);
         submitToServer(data, null);
     }
     return false;
@@ -187,14 +185,13 @@ function storeReport(data) {
 function submitToServer(data, localid)
 {
 	 $.support.cors = true;
-     //TODO add form validation here...
      var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
     	 jqxhr.error(function() {storeLocal(data);});
     	 jqxhr.success(function() {incrementSubmittedCount();console.log("Data submitted to server");});
-    	 jqxhr.complete(function() {$.mobile.changePage('index.html');});
+    	 jqxhr.complete(function() {window.location.href = 'index.html';});
      } else {
     	 //We are submitting a locally queued item, so tidy up as required... 
     	 jqxhr.success(function() {

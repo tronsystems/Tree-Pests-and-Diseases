@@ -6,39 +6,11 @@
 	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="css/fc.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
-	<script src="js/jquery-1.8.2.min.js"></script>
-	<script src="js/jquery.mobile-1.2.0.min.js"></script>
-	<script language="javascript" src="js/jquery.tweet.js" type="text/javascript"></script> 
-	<script type='text/javascript'>
-		jQuery(function($){
-        $("#ticker").tweet({
-          username: "treepestnews",
-          page: 1,
-          avatar_size: 32,
-          count: 20
-        }).bind("loaded", function() {
-          var ul = $(this).find(".tweet_list");
-          var ticker = function() {
-            setTimeout(function() {
-              ul.find('li:first').animate( {marginTop: '-4em'}, 500, function() {
-                $(this).detach().appendTo(ul).removeAttr('style');
-              });
-              ticker();
-            }, 5000);
-          };
-          ticker();
-        });
-      });
-	</script>
-	<script type="text/javascript" src="./js/jquery.magnifier.js">
-
-/***********************************************
-* jQuery Image Magnify- (c) Dynamic Drive DHTML code library (www.dynamicdrive.com)
-* This notice MUST stay intact for legal use
-* Visit Dynamic Drive at http://www.dynamicdrive.com/ for this script and 100s more
-***********************************************/
-
-</script>
+	
+	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/jquery.tweet.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
 </head> 
 <body> 
 <div data-role="page">
@@ -86,9 +58,9 @@
 		Visit our website for more information: <a href='http://www.forestry.gov.uk/pramorum' target="_blank">www.forestry.gov.uk/pramorum</a>
 		</p>
 		<p>
-		Text prepared by Forestry Commission: photos courtesy of K. Julin / Clive Brasier.
+		Text prepared by Forestry Commission.  Photos courtesy of K. Julin / Clive Brasier.
 		</p>
-		<a href="form.html" data-ajax=false data-role="button" data-icon="star">Report a Sighting</a> 
+		<a href="./index.html#sighting" data-role="button" data-icon="star">Report a Sighting</a>
 	</div><!-- /content -->
 
 </div><!-- /page -->
