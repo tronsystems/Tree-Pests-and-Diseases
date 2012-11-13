@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.10.1">
+        version = "0.1.11">
     <name>Tree Disease</name>
 
     <description>
@@ -12,7 +12,7 @@
     <author href="http://www.tronsystems.co.uk" email="fc.support@tronsystems.co.uk">
         Tron Systems
     </author>
-
+    
     <feature name="http://api.phonegap.com/1.0/device" />
     <feature name="http://api.phonegap.com/1.0/camera" />
     <feature name="http://api.phonegap.com/1.0/network" />
