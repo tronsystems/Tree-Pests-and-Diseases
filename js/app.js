@@ -29,6 +29,7 @@ function populateDB(tx) {
 //
 function incrementRecordedCount()
 {
+	console.log("Incrementing recorded count...");
 	var db = getDb();
 	db.transaction(function(tx){tx.executeSql('UPDATE COUNTS SET recorded_count = recorded_count + 1 WHERE id=1');}, errorCB, successCB);
 }
@@ -36,6 +37,7 @@ function incrementRecordedCount()
 //
 function incrementSubmittedCount()
 {
+	console.log("Incrementing submitted count...");
 	var db = getDb();
 	db.transaction(function(tx){tx.executeSql('UPDATE COUNTS SET submitted_count = submitted_count + 1 WHERE id=1');}, errorCB, successCB);
 }
@@ -57,6 +59,8 @@ function successCBCounts(tx, results)
 	var len = results.rows.length;
     console.log("COUNTS table: " + len + " rows found.");
     if (len>0){
+    	console.log("Submitted count: " + results.rows.item(0).submitted_count);
+    	console.log("Recorded count: " + results.rows.item(0).recorded_count);
     	$('#counts').html("You have recorded " + results.rows.item(0).recorded_count + " sightings.");
     }
 }
@@ -76,6 +80,7 @@ function successCB() {
 //Local data storage callback
 function successCBData() {
     console.log("Data stored locally for later submission");
+    incrementRecordedCount();
 }
 
 function storeLocal(data)
@@ -171,11 +176,11 @@ function storeReport(data) {
     states[Connection.CELL_3G]  = 'Cell 3G connection';
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.NONE]     = 'No network connection'; */
-    
+	
     if (networkState == Connection.NONE)
     {
     	storeLocal(data);
-    	window.location.href = 'index.html';
+    	$.mobile.changePage('index.html');
     } else {
         submitToServer(data, null);
     }
@@ -190,8 +195,8 @@ function submitToServer(data, localid)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
     	 jqxhr.error(function() {storeLocal(data);});
-    	 jqxhr.success(function() {incrementSubmittedCount();console.log("Data submitted to server");});
-    	 jqxhr.complete(function() {window.location.href = 'index.html';});
+    	 jqxhr.success(function() {incrementRecordedCount();incrementSubmittedCount();console.log("Data submitted to server");});
+    	 jqxhr.complete(function() {$.mobile.changePage('index.html');});
      } else {
     	 //We are submitting a locally queued item, so tidy up as required... 
     	 jqxhr.success(function() {
@@ -201,7 +206,32 @@ function submitToServer(data, localid)
     	 					}
     	 );
      }
-     jqxhr.success(function() {incrementRecordedCount();});
+}
+
+function onPhotoDataFail() {
+	console.log("Failed getting image...");
+}
+function onPhotoDataSuccess(imageData) {
+    // Uncomment to view the base64 encoded image data
+    // console.log(imageData);
+
+    // Get image handle
+    //
+    $('#imgPreview').attr("src", "data:image/jpeg;base64," + imageData);
+    $('#photo1').val("data:image/jpeg;base64," + imageData);
+
+    // Unhide image elements
+    //
+    $('#imgPreview').show();
+}
+
+function capturePhoto() {
+    // Take picture using device camera and retrieve image as base64-encoded string
+	//pictureSource=navigator.camera.PictureSourceType;
+    var destinationType=navigator.camera.DestinationType;
+    navigator.camera.getPicture(onPhotoDataSuccess, onPhotoDataFail, { quality: 50,
+      destinationType: destinationType.DATA_URL, targetWidth: 240, 
+ });
 }
 
 /** END: FORM HANDLING FUNCTIONS */
