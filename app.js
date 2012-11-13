@@ -225,19 +225,25 @@ function hideLoading()
 	$.mobile.loading('hide');
 }
 
-function externalizeLinks()
+// Set external links to ensure that target is _blank, so that iOS will launch them correctly.
+function externalizeLinks(baseName)
 {
+	var expr = 'a[href^=http]';
+	if (baseName != "")
+	{
+		expr = baseName + ' ' + expr;
+	}
 	jQuery(function($){
-		$('a[href^=http]').each(function() {
+		$(expr).each(function() {
 			//console.log("checking " + this.href);
 			$(this).attr("target", "_blank");
 			$(this).attr("rel", "external");
-	      	$(this).click(function(){
+	      	/*$(this).click(function(){
 	      		//alert("open external!");
 	      		navigator.app.loadUrl(this.href, {wait:2000, loadingDialog:"Please Wait, Loading External Link...", loadUrlTimeoutValue: 60000, openExternal:true } ); 
 	      		//window.open(this.href);
 	      		return false;
-	      	});
+	      	});*/
 	    });	
 	});
 	
