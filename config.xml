@@ -26,7 +26,7 @@
     
     <preference name="android-installLocation" value="preferExternal" />
 
-	<access origin="*" />
+    <!-- <access origin="*" /> -->
 
     <icon src="icons/icon.png" />
     <icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
