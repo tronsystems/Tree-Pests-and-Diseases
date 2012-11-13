@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.6">
+        version = "0.1.7">
     <name>Tree Disease</name>
 
     <description>
@@ -25,6 +25,8 @@
     <preference name="fullscreen" value="true" />
     
     <preference name="android-installLocation" value="preferExternal" />
+
+	<access origin="*" />
 
     <icon src="icons/icon.png" />
     <icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />

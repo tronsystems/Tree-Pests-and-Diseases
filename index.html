@@ -18,7 +18,7 @@
           avatar_size: 32,
           count: 20
         }).bind("loaded", function() {
-          //externalizeLinks();	            
+          externalizeLinks(".tweet_list");	            
           var ul = $(this).find(".tweet_list");
           var ticker = function() {
             setTimeout(function() {
@@ -104,7 +104,7 @@
 			<li><a href="diseases.html">Diseases &amp; Pests</a></li>
 			<li><a href="trees.html">Identify Trees</a></li>
 			<li><a href="visitwood.html">Visiting Woods</a></li>
-			<li><a href="http://www.forestry.gov.uk">Visit Our Website</a></li>
+			<li><a href="http://www.forestry.gov.uk" target="_blank">Visit Our Website</a></li>
 		</ul>
 	</div><!-- /content -->
 
