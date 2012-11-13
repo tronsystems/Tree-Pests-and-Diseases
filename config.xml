@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.11.2">
+        version = "0.1.11.3">
     <name>Tree Disease</name>
 
     <description>
@@ -46,9 +46,9 @@
 	<gap:splash src="splash/ios/splashscreen_640.png" width="640" height="960" />
 	<gap:splash src="splash/ios/splashscreen_640.png" width="640" height="1136" />
 
-	<gap:splash src="splash/android/ldpi/splashscreen.9.png" gap:platform="android" gap:density="ldpi" />
-	<gap:splash src="splash/android/mdpi/splashscreen.9.png" gap:platform="android" gap:density="mdpi" />
-	<gap:splash src="splash/android/hdpi/splashscreen.9.png" gap:platform="android" gap:density="hdpi" />
-	<gap:splash src="splash/android/xhdpi/splashscreen.9.png" gap:platform="android" gap:density="xhdpi" />	
+	<gap:splash src="splash/android/ldpi/splashscreen.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/android/mdpi/splashscreen.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/android/hdpi/splashscreen.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="splash/android/xhdpi/splashscreen.png" gap:platform="android" gap:density="xhdpi" />	
     
 </widget>

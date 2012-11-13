@@ -230,10 +230,28 @@ function capturePhoto() {
 	//pictureSource=navigator.camera.PictureSourceType;
     var destinationType=navigator.camera.DestinationType;
     navigator.camera.getPicture(onPhotoDataSuccess, onPhotoDataFail, { quality: 50,
-      destinationType: destinationType.DATA_URL, targetWidth: 240, 
+      destinationType: destinationType.DATA_URL, targetWidth: 240, targetHeight: 240,
  });
 }
 
+function clearForm(form) {
+	// Remove field values as required...
+	//Clear the image preview...
+	$('#imgPreview').attr("src", "");
+	$(form).children('option').each(
+			function() {
+				$(this).removeAttr("selected");
+			});
+	
+	$(form).children().each( 
+			  function(){
+			    //access to form element via $(this)
+				  if ($(this).attr("id") != "contactname" && $(this).attr("id") != "contactemail") {
+					  $(this).val("");
+				  }
+			  }
+			);
+}
 /** END: FORM HANDLING FUNCTIONS */
 
 /** UTILTIY FUNCTIONS */

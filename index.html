@@ -42,7 +42,7 @@
 				$("#form1").validate({
 					errorPlacement: function(error, element) {
 						if (element.attr("name") === "diseasecommonname" || element.attr("name") === "treespecies") {
-							error.insertAfter($(element).parent());
+							error.insertBefore($(element).parent());
 						} else {
 							error.insertAfter(element);
 						}
@@ -50,7 +50,7 @@
 				 	submitHandler: function( form ) {
 					 	data = $(form).serialize();
 						storeReport(data);
-						$('#form1')[0].reset();
+						clearForm(form);
 						return false;
 				    },
 				    ignore: []
@@ -214,7 +214,7 @@
 	    				<div data-role="collapsible">
 	    					<h3><a href="#">Image</a></h3>
 	    					<img src="" style="display:none;" id="imgPreview" />
-	    					<button onclick="capturePhoto();">Capture Image</button> 
+	    					<button onclick="capturePhoto();return false;">Capture Image</button> 
 	    					<input type="hidden" name="photo1" id="photo1" />
 	    			</div>				
 					<div data-role="fieldcontain">
