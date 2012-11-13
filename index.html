@@ -50,7 +50,7 @@
 				 	submitHandler: function( form ) {
 					 	data = $(form).serialize();
 						storeReport(data);
-						clearForm(form);
+						resetForm($("#form1"));
 						return false;
 				    },
 				    ignore: []

@@ -190,7 +190,7 @@ function storeReport(data) {
 function submitToServer(data, localid)
 {
 	 $.support.cors = true;
-     var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
+     var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
@@ -234,24 +234,20 @@ function capturePhoto() {
  });
 }
 
-function clearForm(form) {
-	// Remove field values as required...
+function resetForm($form) {
 	//Clear the image preview...
 	$('#imgPreview').attr("src", "");
-	$(form).children('option').each(
-			function() {
-				$(this).removeAttr("selected");
-			});
 	
-	$(form).children().each( 
-			  function(){
-			    //access to form element via $(this)
-				  if ($(this).attr("id") != "contactname" && $(this).attr("id") != "contactemail") {
-					  $(this).val("");
-				  }
-			  }
-			);
+    $form.find('input:text, input:password, input:file, select, textarea')
+    	.not('#contactname, #contactemail')
+    	.val('');
+    $form.find('input:radio, input:checkbox')
+         .removeAttr('checked').removeAttr('selected');
+    $form.find('#diseasecommonname, #treespecies')
+    	.selectmenu()
+    	.selectmenu('refresh', true);
 }
+
 /** END: FORM HANDLING FUNCTIONS */
 
 /** UTILTIY FUNCTIONS */
