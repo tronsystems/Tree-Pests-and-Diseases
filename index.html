@@ -7,8 +7,8 @@
 	<link rel="stylesheet" href="css/fc.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
 
-	<!-- <script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script> -->
-	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>
+	<!-- <script type="text/javascript" charset="utf-8" src="phonegap.js"></script> -->
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.validate.min.js"></script>
@@ -150,7 +150,7 @@
 					
 						<div data-role="fieldcontain" style="display:none">
 							<label for="treespecies" class="select">Tree Species:</label>
-							<select name="treespecies" id="treespecies" class="required">
+							<select name="treespecies" id="treespecies">
 								<option value="" data-placeholder="true">Select...</option>
 						   		<option value="Ash" selected>Ash</option>
 						   		<option value="Oak">Oak</option>
@@ -160,7 +160,7 @@
 					
 						<div data-role="fieldcontain" style="display:none">	
 							<label for="diseasecommonname" class="select">Disease:</label>
-							<select name="diseasecommonname" id="diseasecommonname" class="required">
+							<select name="diseasecommonname" id="diseasecommonname">
 								<option value="" data-placeholder="true">Select...</option>
 							   	<option value="Ash dieback" selected>Ash dieback</option>
 							   	<option value="Sudden oak death">Sudden oak death</option>
@@ -198,17 +198,17 @@
 						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Dead or dying tops of tree/shoots">
 								<label for="DiseaseSymptoms-a">Dead or dying tops of tree/shoots</label>
 						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
-						        <label for="DiseaseSymptoms-b">Wilting leaves</label><br>
+						        <label for="DiseaseSymptoms-b">Wilting leaves</label>
             					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Lesions or wounds on branches/stalks">
-            					<label for="DiseaseSymptoms-c">Lesions or wounds on branches/stalks</label><br>
+            					<label for="DiseaseSymptoms-c">Lesions or wounds on branches/stalks</label>
             					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dieback of leaves">
-            					<label for="DiseaseSymptoms-d">Dieback of leaves</label><br>
+            					<label for="DiseaseSymptoms-d">Dieback of leaves</label>
 		            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Fruiting bodies on blackened stalks">
-		            			<label for="DiseaseSymptoms-e">Fruiting bodies on blackened stalks</label><br>
+		            			<label for="DiseaseSymptoms-e">Fruiting bodies on blackened stalks</label>
             					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Dead patches on leaves">
-            					<label for="DiseaseSymptoms-f">Dead patches on leaves</label><br>
+            					<label for="DiseaseSymptoms-f">Dead patches on leaves</label>
             					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-g" value="Staining of wood under bark">
-            					<label for="DiseaseSymptoms-g">Staining of wood under bark</label><br>
+            					<label for="DiseaseSymptoms-g">Staining of wood under bark</label>
 						    </fieldset>								
 						</div>
 						<div data-role="fieldcontain" style="display:none">	
@@ -233,12 +233,15 @@
 <!-- 
 	    			</div>
 	    		</div>
- -->	    		<div data-role="fieldcontain">
+	    		
+ -->	    		
+ 					
+ 					<div data-role="fieldcontain">
 	    				<img src="" style="display:none;" id="imgPreview" />
-	    				<button id="takePicture" onclick="capturePhoto();return false;">Capture Image</button> 
+	    				<input type="button" name="takePicture" id="takePicture" onclick="capturePhoto();return false;" value="Capture Image" /> 
 	    				<input type="hidden" name="photo1" id="photo1" />
 	    			</div>
-	    							
+	    					
 					<div data-role="fieldcontain">
 						<label for="sub"></label>
 						<input name="sub" id="sub" type="submit" value="Submit"/>
