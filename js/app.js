@@ -140,7 +140,8 @@ function onGPSSuccess(position) {
 	//alert("Got GPS!");
 	$('#locationgpslat').val(position.coords.latitude);
 	$('#locationgpslng').val(position.coords.longitude);
-	$('#gpslatlng').html("Lat: " + position.coords.latitude + " Lng: " + position.coords.longitude);
+	//$('#gpslatlng').html("Lat: " + position.coords.latitude + " Lng: " + position.coords.longitude);
+	$('#gpslatlng').html("Your position has been identified");
 	$('#gpslatlng').show();
 	$('#locnname').hide();
 	$('#locnpcode').hide();
