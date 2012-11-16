@@ -190,7 +190,10 @@ function storeReport(data) {
 function submitToServer(data, localid)
 {
 	 $.support.cors = true;
-     var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
+	 //FC submit...
+     //var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
+	 //Tron submit...
+	 var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
@@ -218,6 +221,7 @@ function onPhotoDataSuccess(imageData) {
     // Get image handle
     //
     $('#imgPreview').attr("src", "data:image/jpeg;base64," + imageData);
+    $('#imgPreview').attr("style", "max-width:640px;width:100%;");
     $('#photo1').val("data:image/jpeg;base64," + imageData);
 
     // Unhide image elements
@@ -229,8 +233,8 @@ function capturePhoto() {
     // Take picture using device camera and retrieve image as base64-encoded string
 	//pictureSource=navigator.camera.PictureSourceType;
     var destinationType=navigator.camera.DestinationType;
-    navigator.camera.getPicture(onPhotoDataSuccess, onPhotoDataFail, { quality: 50,
-      destinationType: destinationType.DATA_URL, targetWidth: 240, targetHeight: 240,
+    navigator.camera.getPicture(onPhotoDataSuccess, onPhotoDataFail, { quality: 100,
+      destinationType: destinationType.DATA_URL, targetWidth: 640, targetHeight: 640,
  });
 }
 
