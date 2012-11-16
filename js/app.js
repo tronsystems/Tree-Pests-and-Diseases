@@ -192,9 +192,9 @@ function submitToServer(data, localid)
 {
 	 $.support.cors = true;
 	 //FC submit...
-     //var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
+     var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
 	 //Tron submit...
-	 var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
+	 //var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.

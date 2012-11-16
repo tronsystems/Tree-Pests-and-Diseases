@@ -1,3 +1,8 @@
+0.1.13 2012/11/16
+- Release version
+0.1.12.1 2012/11/16
+- Changed form select fields to radio buttons
+- Privacy page update 
 0.1.12 2012/11/16
 - Changed form.  Some elements removed others made into selections
 - Moved Twitter to separate page
