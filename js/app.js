@@ -1,9 +1,9 @@
 /**  CONSTANTS  */
 //FC
-//var SUBMIT_TO = "http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument";
+var SUBMIT_TO = "http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument";
 
 //TRON
-var SUBMIT_TO = "http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument";
+//var SUBMIT_TO = "http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument";
 /**  END: CONSTANTS  */
 
 
