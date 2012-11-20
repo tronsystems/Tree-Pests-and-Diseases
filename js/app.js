@@ -1,3 +1,12 @@
+/**  CONSTANTS  */
+//FC
+//var SUBMIT_TO = "http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument";
+
+//TRON
+var SUBMIT_TO = "http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument";
+/**  END: CONSTANTS  */
+
+
 /**  DATABASE FUNCTIONS */
 function getDb()
 {
@@ -168,6 +177,7 @@ function initForm()
 }
 
 function storeReport(data) {  
+	showLoading("Saving report...");
 	var networkState = navigator.network.connection.type;
 	/*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
@@ -191,10 +201,8 @@ function storeReport(data) {
 function submitToServer(data, localid)
 {
 	 $.support.cors = true;
-	 //FC submit...
-     var jqxhr = $.post("http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument", data);
-	 //Tron submit...
-	 //var jqxhr = $.post("http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument", data);
+     var jqxhr = $.post(SUBMIT_TO, data);
+	
      if (localid == null)
      {
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
@@ -244,10 +252,10 @@ function resetForm($form) {
 	$('#imgPreview').attr("src", "");
 	
     $form.find('input:text, input:password, input:file, select, textarea')
-    	.not('#contactname, #contactemail')
+    	.not('#contactname, #contactemail, #contactphone, #diseasecommonname, #treespecies')
     	.val('');
     $form.find('input:radio, input:checkbox')
-         .removeAttr('checked').removeAttr('selected');
+         .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");;
     $form.find('#diseasecommonname, #treespecies')
     	.selectmenu()
     	.selectmenu('refresh', true);
