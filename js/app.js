@@ -255,7 +255,7 @@ function resetForm($form) {
     	.not('#contactname, #contactemail, #contactphone, #diseasecommonname, #treespecies')
     	.val('');
     $form.find('input:radio, input:checkbox')
-         .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");;
+         .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");
     $form.find('#diseasecommonname, #treespecies')
     	.selectmenu()
     	.selectmenu('refresh', true);

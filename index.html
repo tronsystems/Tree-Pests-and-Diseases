@@ -69,11 +69,6 @@
 	        setupLocalStorage();
 	    	document.addEventListener("online", submitLocalReports, false);
 	    }
-	    $( document ).bind( "mobileinit", function() {
-	        // Allow cross site requests - needed for twitter follow button...
-			$.support.cors
-	        $.mobile.allowCrossDomainPages = true;
-	    });
 	</script>
 
 </head> 
@@ -116,15 +111,13 @@
 		<h1>Twitter News</h1>
 	</div><!-- /header -->
 	<div id='content_container' data-role="content">
-		<!--  <iframe allowtransparency="true" frameborder="0" scrolling="no"
+		<iframe allowtransparency="true" frameborder="0" scrolling="no"
   			src="https://platform.twitter.com/widgets/follow_button.html?screen_name=treepestnews&show_screen_name=true&show_count=false&lang=en"
-  			style="width:300px; height:30px;"></iframe> -->
-  		<a href="https://twitter.com/treepestnews" class="twitter-follow-button" data-show-screen-name="true" data-show-count="false" data-size="large" data-lang="en">Follow @treepestnews</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-		
+  			style="width:300px; height:20px;"></iframe>
+  		
 		<div id="twitter" style="display:none">
-		<h3>Latest Twitter News</h3>
-		<div id="ticker" class="tweet"></div> 
+			<h3>Latest Twitter News</h3>
+			<div id="ticker" class="tweet"></div> 
 		</div>
 	</div>
 </div>
