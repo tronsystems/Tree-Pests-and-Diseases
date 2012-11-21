@@ -7,8 +7,7 @@
 	<link rel="stylesheet" href="css/fc.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
 
-	<script type="text/javascript" charset="utf-8" src="js/cordova-2.1.0.js"></script>
-	<!-- <script type="text/javascript" charset="utf-8" src="phonegap.js"></script> -->
+	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.validate.min.js"></script>
@@ -22,10 +21,12 @@
 	          avatar_size: 48,
 	          count: 20,
 	          refresh_interval: 60
-        }).bind("loaded", function() {
-            externalizeLinks(".tweet_list");
-        });
-      });
+        	}).bind("loaded", function() {
+        		$("#twitterfollow").html('<a href="http://twitter.com/treepestnews" class="twitter-follow-button" data-show-screen-name="true" data-show-count="false" data-size="large" data-lang="en">Follow @treepestnews</a>');
+        		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        		externalizeLinks(".tweet_list");
+        	});
+      	});
 		
 		jQuery(function($){ 
 			$('#sighting').live('pageshow',function(event, ui){
@@ -36,7 +37,8 @@
 						contactemail: {require_from_group: [1,".contactreq1"]},
 						contactphone: {require_from_group: [1,".contactreq1"]},
 						diseasesymptoms: "required",
-						diseasetreedistribution: "required"
+						diseasetreedistribution: "required",
+						locationdetails: "required"
 					},
 					errorPlacement: function(error, element) {
 						if (element.attr("name") === "diseasecommonname" || element.attr("name") === "treespecies") {
@@ -99,7 +101,7 @@
 			<li><a href="tree_ash.html">Identify Ash Trees</a></li>
 			<li><a href="#twitterpage">Twitter News</a></li>
 			<li><a href="visitwood.html">Visiting Woods</a></li>
-			<li><a href="http://www.forestry.gov.uk/chalara" target="_blank">Visit Our Website</a></li>
+			<li><a href="http://www.forestry.gov.uk/chalara" target="_blank" rel="external">Visit Our Website</a></li>
 		</ul>
 	</div><!-- /content -->
 
@@ -111,9 +113,7 @@
 		<h1>Twitter News</h1>
 	</div><!-- /header -->
 	<div id='content_container' data-role="content">
-		<iframe allowtransparency="true" frameborder="0" scrolling="no"
-  			src="https://platform.twitter.com/widgets/follow_button.html?screen_name=treepestnews&show_screen_name=true&show_count=false&lang=en"
-  			style="width:300px; height:20px;"></iframe>
+		<div id="twitterfollow"></div>
   		
 		<div id="twitter" style="display:none">
 			<h3>Latest Twitter News</h3>
@@ -129,8 +129,7 @@
 			</div><!-- /header -->
 			<div id='content_container' data-role="content">
 				<div id="counts"></div>
-			    	Your personal details and the additional information are optional 
-			    	but please complete as much as possible.
+			    	Please provide an email address or phone number.
 				<form id="form1" action="index.html" method="POST">
 	    			<div>			
 						<div data-role="fieldcontain">
@@ -198,6 +197,7 @@
 						<div data-role="fieldcontain">
 							<fieldset data-role="controlgroup">
 								<legend>Details of Location:</legend>
+								<label for="locationdetails" style="display:none" class="error">Please select the Details of Location</label>
 								<input type="radio" name="locationdetails" id="locationdetails-1" value="Garden"/>
      							<label for="locationdetails-1">Garden</label>
      							<input type="radio" name="locationdetails" id="locationdetails-2" value="Park"/>
@@ -215,7 +215,7 @@
 						<div data-role="fieldcontain">	
  							<fieldset data-role="controlgroup">
 								<legend>Symptoms Spotted:</legend>
-								<label for="diseasesymptoms" style="display:none" class="error">Please select the symptoms spotted</label>
+								<label for="diseasesymptoms" style="display:none" class="error">Please select the Symptoms Spotted</label>
 						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Dead or dying tops of tree/shoots">
 								<label for="DiseaseSymptoms-a">Dead or dying tops of tree/shoots</label>
 						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
@@ -244,7 +244,7 @@
 						<div data-role="fieldcontain">	
 							<fieldset data-role="controlgroup">
 								<legend>No. Trees with Symptoms:</legend>
-								<label for="diseasetreedistribution" style="display:none" class="error">Please select the number of trees with symptoms</label>
+								<label for="diseasetreedistribution" style="display:none" class="error">Please select the No. of Trees with Symptoms</label>
 								<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-1" value="0"/>
      							<label for="diseasetreedistribution-1">Just one</label>
      							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-2" value="1"/>

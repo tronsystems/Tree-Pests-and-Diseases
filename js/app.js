@@ -1,9 +1,9 @@
 /**  CONSTANTS  */
 //FC
-var SUBMIT_TO = "http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument";
+//var SUBMIT_TO = "http://www.forestry.gov.uk/website/treedisease.nsf/TreeDiseaseReport?CreateDocument";
 
 //TRON
-//var SUBMIT_TO = "http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument";
+var SUBMIT_TO = "http://80.177.75.100/treedisease/TreeDiseaseReport?CreateDocument";
 /**  END: CONSTANTS  */
 
 
@@ -224,9 +224,6 @@ function onPhotoDataFail() {
 	console.log("Failed getting image...");
 }
 function onPhotoDataSuccess(imageData) {
-    // Uncomment to view the base64 encoded image data
-    // console.log(imageData);
-
     // Get image handle
     //
     $('#imgPreview').attr("src", "data:image/jpeg;base64," + imageData);
@@ -259,6 +256,8 @@ function resetForm($form) {
     $form.find('#diseasecommonname, #treespecies')
     	.selectmenu()
     	.selectmenu('refresh', true);
+    $form.find('.error')
+    	.hide();
 }
 
 /** END: FORM HANDLING FUNCTIONS */

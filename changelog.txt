@@ -1,3 +1,9 @@
+0.1.14.3 2012/11/21
+- New version for iPhone and Android
+0.1.14.2 2012/11/21
+- Problems with android links
+0.1.14.1 2012/11/21
+- Problems with android build
 0.1.14 2012/11/20
 - Release version
 0.1.13.2 2012/11/20
