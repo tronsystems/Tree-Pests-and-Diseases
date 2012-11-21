@@ -22,14 +22,10 @@
 	          count: 20,
 	          refresh_interval: 60
         	}).bind("loaded", function() {
-        		if ($("#twitterfollow").html() == '')
+        		if ($("#twitterfollow").attr('src') == '')
         		{
-        			$("#twitterfollow").html('<a href="http://twitter.com/treepestnews" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @treepestnews</a>');
-        			
-        			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        		} else {
-        			console.log("twit follow: " + $("#twitterfollow").html());
-        		}
+        			$("#twitterfollow").attr('src', 'http://platform.twitter.com/widgets/follow_button.html?screen_name=treepestnews&show_screen_name=true&show_count=false&lang=en');
+            	}
         		externalizeLinks(".tweet_list");
         	});
       	});
@@ -119,7 +115,9 @@
 		<h1>Twitter News</h1>
 	</div><!-- /header -->
 	<div id='content_container' data-role="content">
-		<div id="twitterfollow"></div>
+		<iframe allowtransparency="true" frameborder="0" scrolling="no" id="twitterfollow"
+  			src=""
+  			style="width:300px; height:20px;"></iframe>
   		
 		<div id="twitter" style="display:none">
 			<h3>Latest Twitter News</h3>
