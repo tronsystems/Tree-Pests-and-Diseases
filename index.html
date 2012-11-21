@@ -22,8 +22,14 @@
 	          count: 20,
 	          refresh_interval: 60
         	}).bind("loaded", function() {
-        		$("#twitterfollow").html('<a href="http://twitter.com/treepestnews" class="twitter-follow-button" data-show-screen-name="true" data-show-count="false" data-size="large" data-lang="en">Follow @treepestnews</a>');
-        		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        		if ($("#twitterfollow").html() == '')
+        		{
+        			$("#twitterfollow").html('<a href="http://twitter.com/treepestnews" class="twitter-follow-button" data-show-count="false" data-size="large">Follow @treepestnews</a>');
+        			
+        			!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+        		} else {
+        			console.log("twit follow: " + $("#twitterfollow").html());
+        		}
         		externalizeLinks(".tweet_list");
         	});
       	});
