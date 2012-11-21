@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.1.14.1">
+        version = "0.1.14.2">
     <name>Tree Alert</name>
 
     <description>
@@ -27,7 +27,7 @@
     <preference name="android-installLocation" value="preferExternal" />
 
 	<!-- For iPhone only - remove for Android build -->
-	<access />
+
     <!-- ******************** -->
 
     <icon src="icons/icon.png" />
