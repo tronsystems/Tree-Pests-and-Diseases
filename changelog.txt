@@ -1,0 +1,31 @@
+0.1.14.6 2012/11/22
+- Revert to Phonegap 2.0.0
+0.1.14.5 2012/11/22
+- Fix follow button opening in new window (iPhone)
+0.1.14.4 2012/11/21
+- Further twitter button change
+0.1.14.3 2012/11/21
+- New version for iPhone and Android
+0.1.14.2 2012/11/21
+- Problems with android links
+0.1.14.1 2012/11/21
+- Problems with android build
+0.1.14 2012/11/20
+- Release version
+0.1.13.2 2012/11/20
+- Changed twitter follow button to iFrame version (resolves iOS problem)
+0.1.13.1 2012/11/20
+- Added contact phone number to the form
+- Added some minor validation to the form
+0.1.13 2012/11/16
+- Release version
+0.1.12.1 2012/11/16
+- Changed form select fields to radio buttons
+- Privacy page update 
+0.1.12 2012/11/16
+- Changed form.  Some elements removed others made into selections
+- Moved Twitter to separate page
+- New icons / splash screens for iOS/Android/Blackberry 
+- Changed size of images submitted
+- Changed text on initial screen and Chalara page
+- Removed other diseases and other trees
