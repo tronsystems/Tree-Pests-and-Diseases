@@ -1,5 +1,6 @@
 0.1.14.6 2012/11/22
 - Revert to Phonegap 2.0.0
+- Updated Chalara symptoms page and form section
 0.1.14.5 2012/11/22
 - Fix follow button opening in new window (iPhone)
 0.1.14.4 2012/11/21

@@ -220,20 +220,18 @@
  							<fieldset data-role="controlgroup">
 								<legend>Symptoms Spotted:</legend>
 								<label for="diseasesymptoms" style="display:none" class="error">Please select the Symptoms Spotted</label>
-						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Dead or dying tops of tree/shoots">
-								<label for="DiseaseSymptoms-a">Dead or dying tops of tree/shoots</label>
+						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Dead or dying tops of trees">
+								<label for="DiseaseSymptoms-a">Dead or dying tops of trees</label>
 						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
 						        <label for="DiseaseSymptoms-b">Wilting leaves</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Lesions or wounds on branches/stalks">
-            					<label for="DiseaseSymptoms-c">Lesions or wounds on branches/stalks</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dieback of leaves">
-            					<label for="DiseaseSymptoms-d">Dieback of leaves</label>
-		            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Fruiting bodies on blackened stalks">
-		            			<label for="DiseaseSymptoms-e">Fruiting bodies on blackened stalks</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Dead patches on leaves">
-            					<label for="DiseaseSymptoms-f">Dead patches on leaves</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-g" value="Staining of wood under bark">
-            					<label for="DiseaseSymptoms-g">Staining of wood under bark</label>
+            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Lesions and cankers on stems/branches/shoot">
+            					<label for="DiseaseSymptoms-c">Lesions and cankers on stems/branches/shoot</label>
+            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dieback of leaves with brown/black leaf stalks">
+            					<label for="DiseaseSymptoms-d">Dieback of leaves with brown/black leaf stalks</label>
+		            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Fruiting bodies on fallen blacked leaf stalks">
+		            			<label for="DiseaseSymptoms-e">Fruiting bodies on fallen blacked leaf stalks</label>
+            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Staining of wood under bark lesions">
+            					<label for="DiseaseSymptoms-f">Staining of wood under bark lesions</label>
 						    </fieldset>								
 						</div>
 						<div data-role="fieldcontain" style="display:none">	
@@ -266,11 +264,12 @@
  -->	    		
  					
  					<div data-role="fieldcontain">
-	    				<img src="" style="display:none;" id="imgPreview" />
+ 						<img src="" style="display:none;" id="imgPreview" />
+	    				<label for="takePicture"></label>
 	    				<input type="button" name="takePicture" id="takePicture" onclick="capturePhoto();return false;" value="Capture Image" /> 
-	    				<input type="hidden" name="photo1" id="photo1" />
 	    			</div>
-	    					
+	    			<input type="hidden" name="photo1" id="photo1" />
+	    			
 					<div data-role="fieldcontain">
 						<label for="sub"></label>
 						<input name="sub" id="sub" type="submit" value="Submit"/>
