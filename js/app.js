@@ -191,7 +191,7 @@ function storeReport(data) {
     if (networkState == Connection.NONE)
     {
     	storeLocal(data);
-    	$.mobile.changePage('index.html');
+    	$.mobile.changePage('privacy.html', {changeHash: false});
     } else {
         submitToServer(data, null);
     }
@@ -208,7 +208,7 @@ function submitToServer(data, localid)
     	 //If local id is null, then we are handling a direct submission from the form, process then redirect.
     	 jqxhr.error(function() {storeLocal(data);});
     	 jqxhr.success(function() {incrementRecordedCount();incrementSubmittedCount();console.log("Data submitted to server");});
-    	 jqxhr.complete(function() {$.mobile.changePage('index.html');});
+    	 jqxhr.complete(function() {$.mobile.changePage('privacy.html', {changeHash: false});});
      } else {
     	 //We are submitting a locally queued item, so tidy up as required... 
     	 jqxhr.success(function() {
