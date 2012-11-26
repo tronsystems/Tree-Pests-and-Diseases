@@ -1,3 +1,5 @@
+0.1.14.8 2012/11/26
+- Change to fixed toolbars
 0.1.14.7 2012/11/26
 - Show updated privacy page on submission of report
 0.1.14.6 2012/11/22
