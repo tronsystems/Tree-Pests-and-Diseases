@@ -2,13 +2,20 @@
 <html> 
 <head> 
 	<title>Tree Diseases & Pests</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="css/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="css/fc.min.css" />
 	<link rel="stylesheet" href="css/app.css" />
 
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).on("mobileinit", function(){
+			$.mobile.buttonMarkup.hoverDelay = 0;
+		});
+	</script>
+	
 	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/additional-methods.min.js"></script>
@@ -36,6 +43,7 @@
 				//Form validation...
 				$("#form1").validate({
 					rules: {
+						contactname: "required",
 						contactemail: {require_from_group: [1,".contactreq1"]},
 						contactphone: {require_from_group: [1,".contactreq1"]},
 						diseasesymptoms: "required",
@@ -133,7 +141,7 @@
 			</div><!-- /header -->
 			<div id='content_container' data-role="content">
 				<div id="counts"></div>
-			    	Please provide an email address or phone number.
+			    	Please provide your name and an email address or phone number.
 				<form id="form1" action="index.html" method="POST">
 	    			<div>			
 						<div data-role="fieldcontain">

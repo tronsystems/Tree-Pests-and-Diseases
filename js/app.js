@@ -159,7 +159,7 @@ function onGPSSuccess(position) {
 function getLocnGPS()
 {
 	showLoading("Getting location...");
-	navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError);
+	navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {timeout:5000});
 }
 
 /**  END: GPS LOCATION FUNCTIONS */
