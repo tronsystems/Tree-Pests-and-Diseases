@@ -31,7 +31,9 @@ function errorCBSetup(err) {
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS QUEUE (id INTEGER PRIMARY KEY, data)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS COUNTS (id INTEGER PRIMARY KEY, recorded_count, submitted_count)');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS CONTACT (id INTEGER PRIMARY KEY, contactname, contactemail, contactphone)');
     tx.executeSql('INSERT INTO COUNTS (recorded_count, submitted_count) SELECT 0, 0 WHERE NOT EXISTS (SELECT 1 FROM COUNTS WHERE id = 1)');
+    tx.executeSql('INSERT INTO CONTACT (contactname, contactemail, contactphone) SELECT "", "", "" WHERE NOT EXISTS (SELECT 1 FROM CONTACT WHERE id = 1)');
 }
 
 //Increment the recorded count 
@@ -73,8 +75,29 @@ function successCBCounts(tx, results)
     	$('#counts').html("You have recorded " + results.rows.item(0).recorded_count + " sightings.");
     }
 }
-
-
+//Store the contact details in the form for future use...
+function storeContact()
+{
+	var db = getDb();
+	db.transaction(function(tx){tx.executeSql('UPDATE CONTACT SET contactname=?, contactemail=?, contactphone=? WHERE id=1', [$('#contactname').val(), $('#contactemail').val(), $('#contactphone').val()]);}, errorCB, successCB);
+}
+function getContact()
+{
+	var db = getDb();
+	db.transaction(queryGetContact, errorCB);
+}
+function queryGetContact(tx) {
+    tx.executeSql('SELECT * FROM CONTACT', [], successCBContact, errorCB);
+}
+function successCBContact(tx, results)
+{
+	var len = results.rows.length;
+    if (len>0){
+    	$('#contactname').val(results.rows.item(0).contactname);
+    	$('#contactemail').val(results.rows.item(0).contactemail);
+    	$('#contactphone').val(results.rows.item(0).contactphone);
+    }
+}
 // General error callback - log the code
 //
 function errorCB(err) {
@@ -133,33 +156,69 @@ function submitLocalReports() {
 
 
 /**  GPS LOCATION FUNCTIONS */
+var last_pos = null;
+var watchID = null;
+function watchGPS() {
+	if (watchID == null) {
+		var options = { frequency: 10000, enableHighAccuracy: true };
+		watchID = navigator.geolocation.watchPosition(onGPSSuccess, onGPSError, options);
+	}
+}
+function stopWatchGPS() {
+	if (watchID != null) {
+		navigator.geolocation.clearWatch(watchID);
+		watchID = null;
+	}
+}
 //onError Callback receives a PositionError object
 //
 function onGPSError(error) {
-	//Carry on without device specified location...
-    //alert('code: '    + error.code    + '\n' +
-    //     'message: ' + error.message + '\n');
-    $.mobile.loading( 'hide' );
-    $('#gpslatlng').hide();
-	$('#locnname').show();
-	$('#locnpcode').show();
+	console.log("Location Service Error: " + error.code + " message: " + error.message);
 }
 
 function onGPSSuccess(position) {
 	//alert("Got GPS!");
-	$('#locationgpslat').val(position.coords.latitude);
-	$('#locationgpslng').val(position.coords.longitude);
-	//$('#gpslatlng').html("Lat: " + position.coords.latitude + " Lng: " + position.coords.longitude);
-	$('#gpslatlng').html("Your position has been identified");
-	$('#gpslatlng').show();
-	$('#locnname').hide();
-	$('#locnpcode').hide();
+	console.log("Location Service Success - accuracy: " + position.coords.accuracy);
+	last_pos = position;
+}
+function useLastGPS() {
+	//Only use the device location if we have it, and the reported accuracy is 
+	//within 50 metres.
+	var bLastPosGood = false;
+	var position = last_pos;
+	if (position) {
+		if (position.coords.accuracy < 50)
+		{
+			bLastPosGood = true;
+		}
+	}
+	if (bLastPosGood) {
+		$('#locationgpslat').val(position.coords.latitude);
+		$('#locationgpslng').val(position.coords.longitude);
+		//Debugging information
+		//$('#gpslatlng').html("Your position has been identified. <br>Accurate to: " + position.coords.accuracy + " metres. <br>Lat: " + position.coords.latitude + " <br>Lng: " + position.coords.longitude);
+		//Normal output
+		$('#gpslatlng').html("Your position has been identified.");
+		$('#gpslatlng').show();
+		$('#locnname').hide();
+		$('#locnpcode').hide();
+	} else {
+		$('#gpslatlng').hide();
+		if (position) {
+			//include the (inaccurate) GPS data anyway, it's better than none.
+			$('#locationgpslat').val(position.coords.latitude);
+			$('#locationgpslng').val(position.coords.longitude);
+		}
+		$('#locnname').show();
+		$('#locnpcode').show();
+	}
 	$.mobile.loading( 'hide' );
 }
 function getLocnGPS()
 {
 	showLoading("Getting location...");
-	navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {maximumAge: 5000, timeout: 5000, enableHighAccuracy: true});
+	//navigator.geolocation.getCurrentPosition(onGPSSuccess, onGPSError, {maximumAge: 60000, timeout: 10000, enableHighAccuracy: true});
+	useLastGPS();
 }
 
 /**  END: GPS LOCATION FUNCTIONS */
@@ -170,6 +229,7 @@ function initForm()
 	//try to get gps location settings
 	getLocnGPS();
 	getCurrentCounts();
+	getContact();
 	//populate timestamp with the current date/time
 	var dte = new Date();
 	$('#datetimereported').val(dte.toString());
@@ -178,6 +238,9 @@ function initForm()
 
 function storeReport(data) {  
 	showLoading("Saving report...");
+	console.log("Report from: " + $('#contactemail').val());
+	storeContact();
+	return false;
 	var networkState = navigator.network.connection.type;
 	/*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';

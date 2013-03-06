@@ -78,13 +78,22 @@
 	    // Wait for Cordova to load
 	    //
 	    document.addEventListener("deviceready", onDeviceReady, false);
+	    document.addEventListener("pause", onPause, false);
+	    document.addEventListener("resume", onResume, false);
 	    // Cordova is ready
 	    //
 	    function onDeviceReady() {
 	        // Add anything here that depends on phonegap being available.
 	        navigator.splashscreen.hide();
 	        setupLocalStorage();
+	        watchGPS();
 	    	document.addEventListener("online", submitLocalReports, false);
+	    }
+	    function onPause() {
+	    	stopWatchGPS();
+	    }
+	    function onResume() {
+	    	watchGPS();
 	    }
 	</script>
 
