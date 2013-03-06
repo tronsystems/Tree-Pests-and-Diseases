@@ -238,9 +238,8 @@ function initForm()
 
 function storeReport(data) {  
 	showLoading("Saving report...");
-	console.log("Report from: " + $('#contactemail').val());
 	storeContact();
-	return false;
+
 	var networkState = navigator.network.connection.type;
 	/*var states = {};
     states[Connection.UNKNOWN]  = 'Unknown connection';
