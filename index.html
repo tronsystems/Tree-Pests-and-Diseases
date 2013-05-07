@@ -47,6 +47,7 @@
 													return $('#contactphone').val() == ""; 
 												}
 						}},
+						treespecies: "required",
 						diseasesymptoms: "required",
 						diseasetreedistribution: "required",
 						locationdetails: "required",
@@ -157,141 +158,166 @@
 				<div id="counts"></div>
 			    	Please provide your name and an email address or phone number.
 				<form id="form1" action="index.html" method="POST">
-	    			<div>			
-						<div data-role="fieldcontain">
-							<label for="contactname">Your Name:</label>
-							<input type="text" name="contactname" id="contactname" class="required"/>
-						</div>
+	    				
+	    			<input type="hidden" name="datetimereported" id="datetimereported" />
+					<input type="hidden" name="deviceid" id="deviceid" />
+					<input type="hidden" name="locationgpslat" id="locationgpslat" />
+					<input type="hidden" name="locationgpslng" id="locationgpslng" />
+						
+					<div data-role="fieldcontain">
+						<label for="contactname">Your Name:</label>
+						<input type="text" name="contactname" id="contactname" class="required"/>
+					</div>
+				
+					<div data-role="fieldcontain">	
+						<label for="contactemail">Your Email:</label>
+						<input type="email" class="contactreq1" name="contactemail" id="contactemail" />
+					</div>
 					
-						<div data-role="fieldcontain">	
-							<label for="contactemail">Your Email:</label>
-							<input type="email" class="contactreq1" name="contactemail" id="contactemail" />
-						</div>
+					<div data-role="fieldcontain">	
+						<label for="contactphone">Your Phone Number:</label>
+						<input type="tel" class="contactreq1" name="contactphone" id="contactphone" />
+					</div>
 						
-						<div data-role="fieldcontain">	
-							<label for="contactphone">Your Phone Number:</label>
-							<input type="tel" class="contactreq1" name="contactphone" id="contactphone" />
-						</div>
+					<div data-role="fieldcontain" id="locnname" style="display:none;">
+						<label for="locationname">Wood/ Location:</label>
+						<input type="text" name="locationname" id="locationname" />
+					</div>
+				
+					<div data-role="fieldcontain" id="locnpcode" style="display:none;">	
+						<label for="locationpostcode">Postcode:</label>
+						<input type="text" name="locationpostcode" id="locationpostcode" />	
+					</div>
+				
+					<div data-role="fieldcontain" id="gpslatlng" style="display:none;"></div>
+				
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Details of Location:</legend>
+							<label for="locationdetails" style="display:none" class="error">Please select the Details of Location</label>
+							<input type="radio" name="locationdetails" id="locationdetails-1" value="Garden"/>
+   							<label for="locationdetails-1">Garden</label>
+   							<input type="radio" name="locationdetails" id="locationdetails-2" value="Park"/>
+   							<label for="locationdetails-2">Park</label>
+   							<input type="radio" name="locationdetails" id="locationdetails-3" value="Hedgerow"/>
+   							<label for="locationdetails-3">Hedgerow</label>
+   							<input type="radio" name="locationdetails" id="locationdetails-4" value="Street"/>
+   							<label for="locationdetails-4">Street</label>
+   							<input type="radio" name="locationdetails" id="locationdetails-5" value="Nursery"/>
+   							<label for="locationdetails-5">Nursery</label>
+   							<input type="radio" name="locationdetails" id="locationdetails-6" value="Forest or Wood"/>
+   							<label for="locationdetails-6">Forest or Wood</label>
+						</fieldset>
+					</div>
 						
-	    			</div>
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Tree Species:</legend>
+							<label for="treespecies" style="display:none" class="error">Please select the Tree Species</label>
+							<input type="radio" name="treespecies" id="treespecies-1" value="Ash"/>
+   							<label for="treespecies-1">Ash</label>
+   							<input type="radio" name="treespecies" id="treespecies-2" value="Oak"/>
+   							<label for="treespecies-2">Oak</label>
+   							<input type="radio" name="treespecies" id="treespecies-3" value="Horse Chestnut"/>
+   							<label for="treespecies-3">Horse Chestnut</label>
+   							<input type="radio" name="treespecies" id="treespecies-4" value="Other"/>
+   							<label for="treespecies-4">Other</label>
+						</fieldset>
+					</div>
+					
+					<div data-role="fieldcontain">
+						<fieldset data-role="controlgroup">
+							<legend>Age of Tree:</legend>
+							<label for="treeage" style="display:none" class="error">Please select the Age of Tree</label>
+							<input type="radio" name="treeage" id="treeage-1" value="0-5"/>
+   							<label for="treeage-1">0 - 5 years</label>
+							<input type="radio" name="treeage" id="treeage-2" value="6-10"/>
+   							<label for="treeage-2">6 - 10 years</label>
+   							<input type="radio" name="treeage" id="treeage-3" value="10-25"/>
+   							<label for="treeage-3">10 - 25 years</label>
+   							<input type="radio" name="treeage" id="treeage-4" value="Older"/>
+   							<label for="treeage-4">Older</label>
+   							<input type="radio" name="treeage" id="treeage-5" value="Unsure"/>
+   							<label for="treeage-5">Not sure</label>
+						</fieldset>
+					</div>
+				
+					<div data-role="fieldcontain" style="display:none">	
+						<label for="diseasecommonname" class="select">Disease:</label>
+						<select name="diseasecommonname" id="diseasecommonname">
+							<option value="" data-placeholder="true">Select...</option>
+						   	<option value="Ash dieback" selected>Ash dieback</option>
+						   	<option value="Sudden oak death">Sudden oak death</option>
+						   	<option value="Other">Other</option>
+						</select>
+					</div>
 	
-	    			<div>
-						<div data-role="fieldcontain" id="locnname" style="display:none;">
-							<label for="locationname">Wood/ Location:</label>
-							<input type="text" name="locationname" id="locationname" />
-						</div>
-					
-						<div data-role="fieldcontain" id="locnpcode" style="display:none;">	
-							<label for="locationpostcode">Postcode:</label>
-							<input type="text" name="locationpostcode" id="locationpostcode" />	
-						</div>
-					
-						<div data-role="fieldcontain" id="gpslatlng" style="display:none;"></div>
-					
-						<div data-role="fieldcontain" style="display:none">
-							<label for="treespecies" class="select">Tree Species:</label>
-							<select name="treespecies" id="treespecies">
-								<option value="" data-placeholder="true">Select...</option>
-						   		<option value="Ash" selected>Ash</option>
-						   		<option value="Oak">Oak</option>
-						   		<option value="Other">Other</option>
-							</select>
-						</div>
-					
-						<div data-role="fieldcontain" style="display:none">	
-							<label for="diseasecommonname" class="select">Disease:</label>
-							<select name="diseasecommonname" id="diseasecommonname">
-								<option value="" data-placeholder="true">Select...</option>
-							   	<option value="Ash dieback" selected>Ash dieback</option>
-							   	<option value="Sudden oak death">Sudden oak death</option>
-							   	<option value="Other">Other</option>
-							</select>
-						</div>
-					
-						<input type="hidden" name="datetimereported" id="datetimereported" />
-						<input type="hidden" name="deviceid" id="deviceid" />
-						<input type="hidden" name="locationgpslat" id="locationgpslat" />
-						<input type="hidden" name="locationgpslng" id="locationgpslng" />
-		    		</div>
-
-<!-- 
-					<div data-role="collapsible-set">
-						<div data-role="collapsible">
-	    					<h3><a href="#">Additional Information</a></h3>
--->
-   					<div>			
-						<div data-role="fieldcontain">
+						
+					<div data-role="fieldcontain">	
 							<fieldset data-role="controlgroup">
-								<legend>Details of Location:</legend>
-								<label for="locationdetails" style="display:none" class="error">Please select the Details of Location</label>
-								<input type="radio" name="locationdetails" id="locationdetails-1" value="Garden"/>
-     							<label for="locationdetails-1">Garden</label>
-     							<input type="radio" name="locationdetails" id="locationdetails-2" value="Park"/>
-     							<label for="locationdetails-2">Park</label>
-     							<input type="radio" name="locationdetails" id="locationdetails-3" value="Hedgerow"/>
-     							<label for="locationdetails-3">Hedgerow</label>
-     							<input type="radio" name="locationdetails" id="locationdetails-4" value="Street"/>
-     							<label for="locationdetails-4">Street</label>
-     							<input type="radio" name="locationdetails" id="locationdetails-5" value="Nursery"/>
-     							<label for="locationdetails-5">Nursery</label>
-     							<input type="radio" name="locationdetails" id="locationdetails-6" value="Forest or Wood"/>
-     							<label for="locationdetails-6">Forest or Wood</label>
-							</fieldset>
-						</div>
-						<div data-role="fieldcontain">	
- 							<fieldset data-role="controlgroup">
-								<legend>Symptoms Spotted:</legend>
-								<label for="diseasesymptoms" style="display:none" class="error">Please select the Symptoms Spotted</label>
-						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Dead or dying tops of trees">
-								<label for="DiseaseSymptoms-a">Dead or dying tops of trees</label>
-						        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
-						        <label for="DiseaseSymptoms-b">Wilting leaves</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Lesions and cankers on stems/branches/shoot">
-            					<label for="DiseaseSymptoms-c">Lesions and cankers on stems/branches/shoot</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dieback of leaves with brown/black leaf stalks">
-            					<label for="DiseaseSymptoms-d">Dieback of leaves with brown/black leaf stalks</label>
-		            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Fruiting bodies on fallen blacked leaf stalks">
-		            			<label for="DiseaseSymptoms-e">Fruiting bodies on fallen blacked leaf stalks</label>
-            					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Staining of wood under bark lesions">
-            					<label for="DiseaseSymptoms-f">Staining of wood under bark lesions</label>
-						    </fieldset>								
-						</div>
-						<div data-role="fieldcontain" style="display:none">	
-							<label for="diseasesymptomdistribution">Distribution of Symptoms on Tree:</label>
-            				<select name="diseasesymptomdistribution" type="text" id="DiseaseSymptomDistribution">
-								<option value="select">-- select --</option>
-								<option value="0">On the trunk</option>
-								<option value="1">On the leaves</option>
-								<option value="2">On the trunk and the leaves</option>
-            				</select>									
-						</div>
-						<div data-role="fieldcontain">	
-							<fieldset data-role="controlgroup">
-								<legend>No. Trees with Symptoms:</legend>
-								<label for="diseasetreedistribution" style="display:none" class="error">Please select the No. of Trees with Symptoms</label>
-								<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-1" value="0"/>
-     							<label for="diseasetreedistribution-1">Just one</label>
-     							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-2" value="1"/>
-     							<label for="diseasetreedistribution-2">A few trees in the area</label>
-     							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-3" value="2"/>
-     							<label for="diseasetreedistribution-3">Most trees in the area</label>
-     							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-4" value="3"/>
-     							<label for="diseasetreedistribution-4">All trees in the area</label>
-     						</fieldset>						
-						</div>
-<!-- 
-	    			</div>
-	    		</div>
-	    		
- -->	    		
+							<legend>Symptoms Spotted:</legend>
+							<label for="diseasesymptoms" style="display:none" class="error">Please select the Symptoms Spotted</label>
+					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Death of tree">
+							<label for="DiseaseSymptoms-a">Death of tree</label>
+					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
+					        <label for="DiseaseSymptoms-b">Wilting leaves</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Discoloured leaves">
+           					<label for="DiseaseSymptoms-c">Discoloured leaves</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dead leaves">
+           					<label for="DiseaseSymptoms-d">Dead leaves</label>
+	            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Death of shoots/small twigs">
+	            			<label for="DiseaseSymptoms-e">Death of shoots/small twigs</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Death of whole branches">
+           					<label for="DiseaseSymptoms-f">Death of whole branches</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-g" value="Areas of dead bark on stem or branches">
+           					<label for="DiseaseSymptoms-g">Areas of dead bark on stem or branches</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-h" value="Bleeding/weeping from bark">
+           					<label for="DiseaseSymptoms-h">Bleeding/weeping from bark</label>
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-i" value="Fungi present">
+           					<label for="DiseaseSymptoms-i">Fungi present</label>
+           					<!--  <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-j" value="Insects present">
+           					<label for="DiseaseSymptoms-j">Insects present</label> -->
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-k" value="Evidence of insects">
+           					<label for="DiseaseSymptoms-k">Evidence of insects - Insects present, eaten leaves, boreholes or tunnels</label>
+					    </fieldset>								
+					</div>
+					
+					<div data-role="fieldcontain" style="display:none">	
+						<label for="diseasesymptomdistribution">Distribution of Symptoms on Tree:</label>
+           				<select name="diseasesymptomdistribution" type="text" id="DiseaseSymptomDistribution">
+							<option value="select">-- select --</option>
+							<option value="0">On the trunk</option>
+							<option value="1">On the leaves</option>
+							<option value="2">On the trunk and the leaves</option>
+           				</select>									
+					</div>
+					<div data-role="fieldcontain">	
+						<fieldset data-role="controlgroup">
+							<legend>No. Trees with Symptoms:</legend>
+							<label for="diseasetreedistribution" style="display:none" class="error">Please select the No. of Trees with Symptoms</label>
+							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-1" value="0"/>
+   							<label for="diseasetreedistribution-1">Just one</label>
+   							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-2" value="1"/>
+   							<label for="diseasetreedistribution-2">A few trees in the area</label>
+   							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-3" value="2"/>
+   							<label for="diseasetreedistribution-3">Most trees in the area</label>
+   							<input type="radio" name="diseasetreedistribution" id="diseasetreedistribution-4" value="3"/>
+   							<label for="diseasetreedistribution-4">All trees in the area</label>
+   						</fieldset>						
+					</div>
+    		
  					
  					<div data-role="fieldcontain">
  						<img src="" style="display:none;" id="imgPreview" />
 	    				<label for="takePicture"></label>
-	    				<input type="button" name="takePicture" id="takePicture" onclick="capturePhoto();return false;" value="Capture Image" /> 
+	    				<input type="button" name="takePicture" id="takePicture" onclick="capturePhoto();return false;" value="Capture Image" />
+	    				<input type="hidden" name="photo1" id="photo1" /> 
 	    			</div>
-	    			<input type="hidden" name="photo1" id="photo1" />
 	    			
+	    			<div data-role="fieldcontain">
+	    				<label for="notes">Additional Notes<br>(eg. rough age of trees, ownership of property)</label>
+	    				<textarea name="notes" id="notes"></textarea>
+	    			</div>
 					<div data-role="fieldcontain">
 						<label for="sub"></label>
 						<input name="sub" id="sub" type="submit" value="Submit"/>
