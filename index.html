@@ -8,6 +8,8 @@
 	<link rel="stylesheet" href="css/app.css" />
 
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+	<script src="childbrowser.js"></script>
+	
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 	
 	<script type="text/javascript">
@@ -104,9 +106,9 @@
 		
 		<h3>Help and Links</h2>
 		<ul data-role="listview" data-inset="true">
-			<li><a href="#symptoms">Typical symptoms</a></li>
-			<li><a href="visitwood.html">Visiting Woods</a></li>
-			<li><a href="http://www.forestry.gov.uk/pestsanddiseases" target="_blank" rel="external">More info (requires connection)</a></li>
+			<!-- <li><a href="#symptoms">Typical symptoms</a></li>
+			<li><a href="visitwood.html">Visiting Woods</a></li> -->
+			<li><a href="http://www.forestry.gov.uk/pestsanddiseases" target="_blank" rel="external" onclick="window.plugins.childBrowser.showWebPage('http://www.forestry.gov.uk/pestsanddiseases', { showLocationBar: true });return false;">More info (requires connection)</a></li>
 		</ul>
 	</div><!-- /content -->
 
