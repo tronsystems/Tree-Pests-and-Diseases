@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "0.2.0">
+        version = "1.0.0">
     <name>Tree Alert</name>
 
     <description>
@@ -42,13 +42,13 @@
     <icon src="icons/ios/treeAlertIcon_iOS_iPad.png" gap:platform="ios" width="114" height="114" />
     <icon src="icons/ios/treeAlertIcon_iOS_retina.png" gap:platform="ios" width="144" height="144" />
     
-    <gap:splash src="splash/ios/treeAlertSplash_iOS_standard.png" width="320" height="480" />
-	<gap:splash src="splash/ios/treeAlertSplash_iOS_iPhone5.png" width="640" height="960" />
-	<gap:splash src="splash/ios/treeAlertSplash_iOS_retina.png" width="640" height="1136" />
+    <gap:splash src="splash/ios/Tree-Alert-splash-screen-v2_original.png" width="320" height="480" />
+	<gap:splash src="splash/ios/Tree-Alert-splash-screen-v2_iPhone5.png" width="640" height="960" />
+	<gap:splash src="splash/ios/Tree-Alert-splash-screen-v2_retina.png" width="640" height="1136" />
 
-	<gap:splash src="splash/android/ldpi/treeAlertSplash_android_ldpi.png" gap:platform="android" gap:density="ldpi" />
-	<gap:splash src="splash/android/mdpi/treeAlertSplash_android_mdpi.png" gap:platform="android" gap:density="mdpi" />
-	<gap:splash src="splash/android/hdpi/treeAlertSplash_android_hdpi.png" gap:platform="android" gap:density="hdpi" />
-	<gap:splash src="splash/android/xhdpi/treeAlertSplash_android_xhdpi.png" gap:platform="android" gap:density="xhdpi" />	
+	<gap:splash src="splash/android/ldpi/Tree-Alert-splash-screen-v2_ldpi.png" gap:platform="android" gap:density="ldpi" />
+	<gap:splash src="splash/android/mdpi/Tree-Alert-splash-screen-v2_mdpi.png" gap:platform="android" gap:density="mdpi" />
+	<gap:splash src="splash/android/hdpi/Tree-Alert-splash-screen-v2_hdpi.png" gap:platform="android" gap:density="hdpi" />
+	<gap:splash src="splash/android/xhdpi/Tree-Alert-splash-screen-v2_xhdpi.png" gap:platform="android" gap:density="xhdpi" />	
     
 </widget>

@@ -19,23 +19,9 @@
 	<script type="text/javascript" charset="utf-8" src="js/jquery.mobile-1.2.0.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript" charset="utf-8" src="js/app.js"></script>
-	<script language="javascript" src="js/jquery.tweet.js" type="text/javascript"></script> 
+	
 	<script type='text/javascript'>
-		jQuery(function($){
-        	$("#ticker").tweet({
-	          username: "treepestnews",
-	          avatar_size: 48,
-	          count: 20,
-	          refresh_interval: 60
-        	}).bind("loaded", function() {
-        		//if ($("#twitterfollow").attr('src') == '')
-        		//{
-        		//	$("#twitterfollow").attr('src', 'http://platform.twitter.com/widgets/follow_button.html?screen_name=treepestnews&show_screen_name=true&show_count=false&lang=en');
-            	//}
-        		externalizeLinks(".tweet_list");
-        	});
-      	});
-		
+				
 		jQuery(function($){ 
 			$('#sighting').live('pageshow',function(event, ui){
 				initForm();
@@ -102,52 +88,29 @@
 <body>
 <div data-role="page" id="home">
 
-	<!-- <div data-role="header" class="logoh">
-		<h1>Tree Diseases & Pests</h1>
-	</div> --><!-- /header -->
 	<div style="width:100%; background-color:#ffffff; text-align:center">
-		<img src="images/fc2.png" style="">
+		<img src="images/TreeAlerticon.jpg" style="">
 	</div>
-	<img src="images/chalara.jpg" style="width:100%">
+
 	<div data-role="content" style="padding-top:0">	
 		<h2>Tree Alert</h2>
 
-		<p>Chalara dieback of ash is a serious disease of ash trees. It causes leaf 
-		loss, especially in the crown of the tree, and will usually be fatal. 
-		Tracking diseased trees will improve our understanding of Chalara and help 
-		identify resistant strains. You can help by reading the advice here and 
-		reporting any sightings.</p>
+		<p>Britain’s trees are under unprecedented threat from new pests and diseases. 
+		We are particularly interested in identifying problems with ash, oak, horse chestnut, 
+		pine and sitka spruce trees. You can help by being aware of the symptoms of serious 
+		threats and reporting them for further investigation.</p>
 			
 		<a href="#sighting" data-role="button" data-icon="star">Report a Sighting</a>  
 		
 		<h3>Help and Links</h2>
 		<ul data-role="listview" data-inset="true">
-			<li><a href="disease_chalara.html">Chalara Ash Dieback</a></li>
-			<li><a href="tree_ash.html">Identify Ash Trees</a></li>
-			<li><a href="#twitterpage">Twitter News</a></li>
+			<li><a href="#symptoms">Typical symptoms</a></li>
 			<li><a href="visitwood.html">Visiting Woods</a></li>
-			<li><a href="http://www.forestry.gov.uk/chalara" target="_blank" rel="external">Visit Our Website</a></li>
+			<li><a href="http://www.forestry.gov.uk/pestsanddiseases" target="_blank" rel="external">More info (requires connection)</a></li>
 		</ul>
 	</div><!-- /content -->
 
 </div><!-- /page -->
-
-<div data-role="page" id="twitterpage">
-   	<div data-role="header" class="logoh" data-position="fixed">
-   		<a href="index.html" data-rel="back" data-icon="back" data-iconpos="notext" data-direction="reverse">Home</a>
-		<h1>Twitter News</h1>
-	</div><!-- /header -->
-	<div id='content_container' data-role="content">
-		<iframe allowtransparency="true" frameborder="0" scrolling="no" id="twitterfollow"
-   			src="https://platform.twitter.com/widgets/follow_button.html?screen_name=treepestnews&show_screen_name=true&show_count=false&lang=en"
-  			style="width:300px; height:20px;"></iframe>
-  		
-		<div id="twitter" style="display:none">
-			<h3>Latest Twitter News</h3>
-			<div id="ticker" class="tweet"></div> 
-		</div>
-	</div>
-</div>
 
 		<div data-role="page" id="sighting">
 	    	<div data-role="header" class="logoh" data-position="fixed">
@@ -330,5 +293,17 @@
 				</form> 
 			</div>
 		</div>
+		
+	<div data-role="page" id="symptoms">
+	   	<div data-role="header" class="logoh" data-position="fixed">
+	   		<a href="index.html" data-rel="back" data-icon="back" data-iconpos="notext" data-direction="reverse">Home</a>
+			<h1>Typical Symptoms</h1>
+		</div><!-- /header -->
+		<div data-role="content">
+			<h3>Content to follow</h3>
+			<p>TBC.</p>
+		</div>
+	</div>
+	
 </body>
 </html>

@@ -1,3 +1,7 @@
+1.0.0 2013/05/10
+- Rework of home screen, removal of items no longer required
+0.2.0 2013/05/07
+- Changes to the report form
 0.1.14.11 2013/03/06
 - Change to default name, email and phone to last used
 - Further changes to location settings to get better accuracy
