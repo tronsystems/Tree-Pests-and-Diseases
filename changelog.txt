@@ -1,3 +1,5 @@
+1.0.1 2013/05/13
+- Added Typical Symptoms page
 1.0.0 2013/05/10
 - Rework of home screen, removal of items no longer required
 0.2.0 2013/05/07
