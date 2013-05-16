@@ -28,7 +28,7 @@
     <preference name="android-installLocation" value="preferExternal" />
 
 	<!-- For iPhone only - remove for Android build -->
-	<access origin="*" />
+	<!-- <access origin="*" /> -->
     <!-- ******************** -->
 
     <icon src="icons/icon.png" />
