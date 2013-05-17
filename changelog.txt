@@ -1,3 +1,5 @@
+1.0.2 2013/05/17
+- Removed spaces from image filenames
 1.0.1 2013/05/13
 - Added Typical Symptoms page
 1.0.0 2013/05/10
