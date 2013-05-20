@@ -1,3 +1,5 @@
+1.0.4 2013/05/20
+- Moved buttons on home page, added pine and spruce species
 1.0.3 2013/05/17
 - Change to the privacy/ report submission page
 1.0.2 2013/05/17
