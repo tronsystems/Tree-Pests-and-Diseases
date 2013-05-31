@@ -1,3 +1,5 @@
+1.0.5 2013/05/31
+- More button changes on home screen, Phonegap version update to 2.7.0
 1.0.4 2013/05/20
 - Moved buttons on home page, added pine and spruce species
 1.0.3 2013/05/17
