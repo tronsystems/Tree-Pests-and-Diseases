@@ -77,7 +77,24 @@
 	        setupLocalStorage();
 	        watchGPS();
 	    	document.addEventListener("online", submitLocalReports, false);
+	    	
+	    	// Special handling for blackberry devices... 
+	    	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,
+	    			function() {
+	    				//do some stuff here
+	    				goBack();
+	    			});
+	    	
 	    }
+	    
+	    function goBack(){
+	        if (typeof (navigator.app) !== "undefined") {
+	            navigator.app.backHistory();
+	        } else {
+	            window.history.back();
+	        }
+	    }
+	    
 	    function onPause() {
 	    	stopWatchGPS();
 	    }

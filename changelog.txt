@@ -1,3 +1,5 @@
+1.0.6 2013/08/02
+- Windows Phone splash screen added, back button handling for Blackberry devices, Phonegap version update to 2.9.0
 1.0.5 2013/05/31
 - More button changes on home screen, Phonegap version update to 2.7.0
 1.0.4 2013/05/20
