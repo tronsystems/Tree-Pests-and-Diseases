@@ -8,8 +8,7 @@
 	<link rel="stylesheet" href="css/app.css" />
 
 	<script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-	<!-- Attempt to get round the PGB problem with injecting the js source on BB (and winphone?) -->
-	<script type="text/javascript" charset="utf-8" src="js/childbrowser.js"></script>
+	<script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
 	
 	<script type="text/javascript" charset="utf-8" src="js/jquery-1.8.2.min.js"></script>
 	
@@ -80,20 +79,11 @@
 	    	document.addEventListener("online", submitLocalReports, false);
 	    	
 	    	// Special handling for blackberry devices... 
-	    	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK,
-	    			function() {
-	    				//do some stuff here
-	    				goBack();
+	    	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK, 
+	    			function() { 
+	    				history.back(); 
+	    				return false; 
 	    			});
-	    	
-	    }
-	    
-	    function goBack(){
-	        if (typeof (navigator.app) !== "undefined") {
-	            navigator.app.backHistory();
-	        } else {
-	            window.history.back();
-	        }
 	    }
 	    
 	    function onPause() {
