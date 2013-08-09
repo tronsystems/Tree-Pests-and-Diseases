@@ -27,7 +27,7 @@
     
     <preference name="android-installLocation" value="preferExternal" />
 
-	<feature id="blackberry.system.event" version="1.0.0" />
+	<feature id="blackberry.system.event" version="1.0.0.0" />
 	
 	<!-- For iPhone only - remove for Android build -->
 	<access origin="*" />
