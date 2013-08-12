@@ -69,6 +69,7 @@
 	    document.addEventListener("deviceready", onDeviceReady, false);
 	    document.addEventListener("pause", onPause, false);
 	    document.addEventListener("resume", onResume, false);
+	    console.log("event listeners added");
 	    // Cordova is ready
 	    //
 	    function onDeviceReady() {
@@ -81,9 +82,11 @@
 	    	// Special handling for blackberry devices... 
 	    	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK, 
 	    			function() { 
+	    				console.log("blackberry back button press!");
 	    				history.back(); 
 	    				return false; 
 	    			});
+	    	console.log("ondeviceready done!");
 	    }
 	    
 	    function onPause() {
