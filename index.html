@@ -76,10 +76,14 @@
 	    	console.log("ondeviceready start!");
 	        // Add anything here that depends on phonegap being available.
 	        navigator.splashscreen.hide();
+	        console.log("storage setup...");
 	        setupLocalStorage();
+	        console.log("gps setup...");
 	        watchGPS();
+	        console.log("online setup...");
 	    	document.addEventListener("online", submitLocalReports, false);
 	    	
+	    	console.log("BB backbutton setup...");
 	    	// Special handling for blackberry devices... 
 	    	blackberry.system.event.onHardwareKey(blackberry.system.event.KEY_BACK, 
 	    			function() { 
