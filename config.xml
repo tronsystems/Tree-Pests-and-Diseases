@@ -28,7 +28,7 @@
     
     <preference name="android-installLocation" value="preferExternal" />
 
-	<feature id="blackberry.system.event" version="1.0.0.0" />
+	<!-- <feature id="blackberry.system.event" version="1.0.0.0" /> --> 
 	
 	<!-- For iPhone only - remove for Android build -->
 	<access origin="*" />
@@ -61,4 +61,5 @@
     
     <gap:splash src="splash/winphone/Tree-Alert-splash-screen-v2.jpg" gap:platform="winphone" />
     
+    <gap:splash src="splash/bb/Tree-Alert-splash-screen-v2.png" gap:platform="blackberry" />
 </widget>
