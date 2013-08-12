@@ -15,6 +15,11 @@ function getDb()
 function setupLocalStorage()
 {
 	 var db = getDb();
+	 if (db == null) {
+		 console.log("Null returned for DB");
+	 } else {
+		 console.log("Got app DB");
+	 }
      db.transaction(populateDB, errorCBSetup, successCB);
 }
 
