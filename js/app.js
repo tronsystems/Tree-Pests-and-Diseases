@@ -14,6 +14,7 @@ function getDb()
 }
 function setupLocalStorage()
 {
+	console.log("Calling getDb...");
 	 var db = getDb();
 	 if (db == null) {
 		 console.log("Null returned for DB");
