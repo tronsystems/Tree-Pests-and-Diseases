@@ -40,7 +40,7 @@ function populateDB(tx) {
     tx.executeSql('DROP TABLE IF EXISTS CONTACT');
     tx.executeSql('CREATE TABLE IF NOT EXISTS CONTACT2 (id INTEGER PRIMARY KEY, contactfirstname, contactsurname, contactemail, contactphone, cancontact)');
     tx.executeSql('INSERT INTO COUNTS (recorded_count, submitted_count) SELECT 0, 0 WHERE NOT EXISTS (SELECT 1 FROM COUNTS WHERE id = 1)');
-    tx.executeSql('INSERT INTO CONTACT2 (contactfirstname, contactsurname, contactemail, contactphone, cancontact) SELECT "", "", "", "", "" WHERE NOT EXISTS (SELECT 1 FROM CONTACT2 WHERE id = 1)');
+    tx.executeSql('INSERT INTO CONTACT2 (contactfirstname, contactsurname, contactemail, contactphone, cancontact) SELECT "", "", "", "", "Y" WHERE NOT EXISTS (SELECT 1 FROM CONTACT2 WHERE id = 1)');
 }
 
 //Increment the recorded count 
@@ -104,7 +104,12 @@ function successCBContact(tx, results)
     	$('#contactsurname').val(results.rows.item(0).contactsurname);
     	$('#contactemail').val(results.rows.item(0).contactemail);
     	$('#contactphone').val(results.rows.item(0).contactphone);
-    	$('#cancontact').val(results.rows.item(0).cancontact);
+    	if (results.rows.item(0).cancontact != "") {
+    		$('#cancontact').prop('checked', true);
+    	} else {
+    		$('#cancontact').prop('checked', false);
+    	}
+    	
     }
 }
 // General error callback - log the code
