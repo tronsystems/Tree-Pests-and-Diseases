@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "com.tron.treediseases"
-        version = "1.0.6.1">
+        version = "1.0.7">
     <name>Tree Alert</name>
 
     <description>
@@ -20,31 +20,30 @@
     <feature name="http://api.phonegap.com/1.0/geolocation" />
     <!--  TESTING for BB -->
     <!-- <gap:plugin name="com.phonegap.plugins.childbrowser" /> -->
-
+	<!-- <feature id="blackberry.system.event" version="1.0.0.0" /> --> 
+	
     <preference name="phonegap-version" value="2.9.0" />
     <preference name="orientation" value="default" />
     <preference name="target-device" value="universal" />
     <preference name="fullscreen" value="true" />
     
     <preference name="android-installLocation" value="preferExternal" />
-
-	<!-- <feature id="blackberry.system.event" version="1.0.0.0" /> --> 
 	
 	<!-- For iPhone only - remove for Android build -->
 	<access origin="*" />
     <!-- ******************** -->
 
     <icon src="icons/icon.png" />
-    <icon src="icons/android/treeAlertIcon_android_ldpi.png" gap:platform="android" gap:density="ldpi" />
-    <icon src="icons/android/treeAlertIcon_android_mdpi.png" gap:platform="android" gap:density="mdpi" />
-    <icon src="icons/android/treeAlertIcon_android_hdpi.png" gap:platform="android" gap:density="hdpi" />
-    <icon src="icons/android/treeAlertIcon_android_xhdpi.png" gap:platform="android" gap:density="xhdpi" />
-    <icon src="icons/blackberry/treeAlertIcon_BB.png" gap:platform="blackberry" />
-    <icon src="icons/blackberry/treeAlertIcon_BB.png" gap:platform="blackberry" gap:state="hover"/>
-    <icon src="icons/ios/treeAlertIcon_iOS_standard.png" gap:platform="ios" width="57" height="57" />
-    <icon src="icons/ios/treeAlertIcon_iOS_iPad.png" gap:platform="ios" width="72" height="72" />
-    <icon src="icons/ios/treeAlertIcon_iOS_iPad.png" gap:platform="ios" width="114" height="114" />
-    <icon src="icons/ios/treeAlertIcon_iOS_retina.png" gap:platform="ios" width="144" height="144" />
+    <icon gap:platform="android" gap:density="ldpi" src="icons/android/treeAlertIcon_android_ldpi.png" />
+    <icon gap:platform="android" gap:density="mdpi" src="icons/android/treeAlertIcon_android_mdpi.png" />
+    <icon gap:platform="android" gap:density="hdpi" src="icons/android/treeAlertIcon_android_hdpi.png" />
+    <icon gap:platform="android" gap:density="xhdpi" src="icons/android/treeAlertIcon_android_xhdpi.png" />
+    <icon gap:platform="blackberry" src="icons/blackberry/treeAlertIcon_BB.png" />
+    <icon gap:platform="blackberry" gap:state="hover" src="icons/blackberry/treeAlertIcon_BB.png" />
+    <icon gap:platform="ios" src="icons/ios/treeAlertIcon_iOS_standard.png" width="57" height="57" />
+    <icon gap:platform="ios" src="icons/ios/treeAlertIcon_iOS_iPad.png" width="72" height="72" />
+    <icon gap:platform="ios" src="icons/ios/treeAlertIcon_iOS_iPad.png" width="114" height="114" />
+    <icon gap:platform="ios" src="icons/ios/treeAlertIcon_iOS_retina.png" width="144" height="144" />
     
     <gap:splash gap:platform="ios" src="splash/ios/Tree-Alert-splash-screen-v2_original.png" width="320" height="480" />
 	<gap:splash gap:platform="ios" src="splash/ios/Tree-Alert-splash-screen-v2_iPhone5.png" width="640" height="960" />
@@ -54,12 +53,12 @@
 	<gap:splash gap:platform="ios" src="splash/ios/Tree-Alert-splash-screen-v2_iPad-retina_landscape.png" width="2048" height="1496" />
 	<gap:splash gap:platform="ios" src="splash/ios/Tree-Alert-splash-screen-v2_iPad-retina_portrait.png" width="1536" height="2008" />
 
-	<gap:splash src="splash/android/ldpi/Tree-Alert-splash-screen-v2_ldpi.png" gap:platform="android" gap:density="ldpi" />
-	<gap:splash src="splash/android/mdpi/Tree-Alert-splash-screen-v2_mdpi.png" gap:platform="android" gap:density="mdpi" />
-	<gap:splash src="splash/android/hdpi/Tree-Alert-splash-screen-v2_hdpi.png" gap:platform="android" gap:density="hdpi" />
-	<gap:splash src="splash/android/xhdpi/Tree-Alert-splash-screen-v2_xhdpi.png" gap:platform="android" gap:density="xhdpi" />	
+	<gap:splash gap:platform="android" gap:density="ldpi" src="splash/android/ldpi/Tree-Alert-splash-screen-v2_ldpi.png" />
+	<gap:splash gap:platform="android" gap:density="mdpi" src="splash/android/mdpi/Tree-Alert-splash-screen-v2_mdpi.png" />
+	<gap:splash gap:platform="android" gap:density="hdpi" src="splash/android/hdpi/Tree-Alert-splash-screen-v2_hdpi.png" />
+	<gap:splash gap:platform="android" gap:density="xhdpi" src="splash/android/xhdpi/Tree-Alert-splash-screen-v2_xhdpi.png" />	
     
-    <gap:splash src="splash/winphone/Tree-Alert-splash-screen-v2.jpg" gap:platform="winphone" />
+    <gap:splash gap:platform="winphone" src="splash/winphone/Tree-Alert-splash-screen-v2.jpg" />
     
-    <gap:splash src="splash/bb/Tree-Alert-splash-screen-v2.png" gap:platform="blackberry" />
+    <gap:splash gap:platform="blackberry" src="splash/bb/Tree-Alert-splash-screen-v2.png" />
 </widget>

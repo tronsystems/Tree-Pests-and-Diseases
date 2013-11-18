@@ -37,9 +37,10 @@ function errorCBSetup(err) {
 function populateDB(tx) {
     tx.executeSql('CREATE TABLE IF NOT EXISTS QUEUE (id INTEGER PRIMARY KEY, data)');
     tx.executeSql('CREATE TABLE IF NOT EXISTS COUNTS (id INTEGER PRIMARY KEY, recorded_count, submitted_count)');
-    tx.executeSql('CREATE TABLE IF NOT EXISTS CONTACT (id INTEGER PRIMARY KEY, contactname, contactemail, contactphone)');
+    tx.executeSql('DROP TABLE IF EXISTS CONTACT');
+    tx.executeSql('CREATE TABLE IF NOT EXISTS CONTACT2 (id INTEGER PRIMARY KEY, contactfirstname, contactsurname, contactemail, contactphone, cancontact)');
     tx.executeSql('INSERT INTO COUNTS (recorded_count, submitted_count) SELECT 0, 0 WHERE NOT EXISTS (SELECT 1 FROM COUNTS WHERE id = 1)');
-    tx.executeSql('INSERT INTO CONTACT (contactname, contactemail, contactphone) SELECT "", "", "" WHERE NOT EXISTS (SELECT 1 FROM CONTACT WHERE id = 1)');
+    tx.executeSql('INSERT INTO CONTACT2 (contactfirstname, contactsurname, contactemail, contactphone, cancontact) SELECT "", "", "", "", "" WHERE NOT EXISTS (SELECT 1 FROM CONTACT2 WHERE id = 1)');
 }
 
 //Increment the recorded count 
@@ -85,7 +86,7 @@ function successCBCounts(tx, results)
 function storeContact()
 {
 	var db = getDb();
-	db.transaction(function(tx){tx.executeSql('UPDATE CONTACT SET contactname=?, contactemail=?, contactphone=? WHERE id=1', [$('#contactname').val(), $('#contactemail').val(), $('#contactphone').val()]);}, errorCB, successCB);
+	db.transaction(function(tx){tx.executeSql('UPDATE CONTACT2 SET contactfirstname=?, contactsurname=?, contactemail=?, contactphone=?, cancontact=? WHERE id=1', [$('#contactfirstname').val(), $('#contactsurname').val(), $('#contactemail').val(), $('#contactphone').val(), $('#cancontact').val()]);}, errorCB, successCB);
 }
 function getContact()
 {
@@ -93,15 +94,17 @@ function getContact()
 	db.transaction(queryGetContact, errorCB);
 }
 function queryGetContact(tx) {
-    tx.executeSql('SELECT * FROM CONTACT', [], successCBContact, errorCB);
+    tx.executeSql('SELECT * FROM CONTACT2', [], successCBContact, errorCB);
 }
 function successCBContact(tx, results)
 {
 	var len = results.rows.length;
     if (len>0){
-    	$('#contactname').val(results.rows.item(0).contactname);
+    	$('#contactfirstname').val(results.rows.item(0).contactfirstname);
+    	$('#contactsurname').val(results.rows.item(0).contactsurname);
     	$('#contactemail').val(results.rows.item(0).contactemail);
     	$('#contactphone').val(results.rows.item(0).contactphone);
+    	$('#cancontact').val(results.rows.item(0).cancontact);
     }
 }
 // General error callback - log the code
@@ -317,10 +320,11 @@ function resetForm($form) {
 	$('#imgPreview').attr("src", "");
 	
     $form.find('input:text, input:password, input:file, select, textarea')
-    	.not('#contactname, #contactemail, #contactphone, #diseasecommonname, #treespecies')
+    	.not('#contactfirstname, #contactsurname, #contactemail, #contactphone, #diseasecommonname, #treespecies')
     	.val('');
     $form.find('input:radio, input:checkbox')
-         .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");
+    	.not(''#cancontact')
+        .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");
     $form.find('#diseasecommonname, #treespecies')
     	.selectmenu()
     	.selectmenu('refresh', true);

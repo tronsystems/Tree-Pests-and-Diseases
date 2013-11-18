@@ -141,10 +141,15 @@
 					<input type="hidden" name="locationgpslng" id="locationgpslng" />
 						
 					<div data-role="fieldcontain">
-						<label for="contactname">Your Name:</label>
-						<input type="text" name="contactname" id="contactname" class="required"/>
+						<label for="contactfirstname">Your First Name:</label>
+						<input type="text" name="contactfirstname" id="contactfirstname" class="required"/>
 					</div>
 				
+					<div data-role="fieldcontain">
+						<label for="contactsurname">Your Surname:</label>
+						<input type="text" name="contactsurname" id="contactsurname" class="required"/>
+					</div>
+					
 					<div data-role="fieldcontain">	
 						<label for="contactemail">Your Email:</label>
 						<input type="email" class="contactreq1" name="contactemail" id="contactemail" />
@@ -154,6 +159,14 @@
 						<label for="contactphone">Your Phone Number:</label>
 						<input type="tel" class="contactreq1" name="contactphone" id="contactphone" />
 					</div>
+					
+					<div data-role="fieldcontain">	
+						<fieldset data-role="controlgroup">
+							<legend>Can be contacted:</legend>
+							<label for="cancontact">I may be contacted</label>
+							<input style="width:inherit" type="checkbox" name="cancontact" id="cancontact" value="I may be contacted" />
+						</fieldset>
+					</div>	
 						
 					<div data-role="fieldcontain" id="locnname" style="display:none;">
 						<label for="locationname">Wood/ Location:</label>
@@ -237,27 +250,27 @@
 							<fieldset data-role="controlgroup">
 							<legend>Symptoms Spotted:</legend>
 							<label for="diseasesymptoms" style="display:none" class="error">Please select the Symptoms Spotted</label>
-					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-a" value="Death of tree">
+					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-a" value="Death of tree">
 							<label for="DiseaseSymptoms-a">Death of tree</label>
-					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-b" value="Wilting leaves">
+					        <input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-b" value="Wilting leaves">
 					        <label for="DiseaseSymptoms-b">Wilting leaves</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-c" value="Discoloured leaves">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-c" value="Discoloured leaves">
            					<label for="DiseaseSymptoms-c">Discoloured leaves</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-d" value="Dead leaves">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-d" value="Dead leaves">
            					<label for="DiseaseSymptoms-d">Dead leaves</label>
-	            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-e" value="Death of shoots/small twigs">
+	            			<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-e" value="Death of shoots/small twigs">
 	            			<label for="DiseaseSymptoms-e">Death of shoots/small twigs</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-f" value="Death of whole branches">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-f" value="Death of whole branches">
            					<label for="DiseaseSymptoms-f">Death of whole branches</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-g" value="Areas of dead bark on stem or branches">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-g" value="Areas of dead bark on stem or branches">
            					<label for="DiseaseSymptoms-g">Areas of dead bark on stem or branches</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-h" value="Bleeding/weeping from bark">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-h" value="Bleeding/weeping from bark">
            					<label for="DiseaseSymptoms-h">Bleeding/weeping from bark</label>
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-i" value="Fungi present">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-i" value="Fungi present">
            					<label for="DiseaseSymptoms-i">Fungi present</label>
-           					<!--  <input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-j" value="Insects present">
+           					<!--  <input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-j" value="Insects present">
            					<label for="DiseaseSymptoms-j">Insects present</label> -->
-           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" type="text" id="DiseaseSymptoms-k" value="Evidence of insects">
+           					<input style="width:inherit" type="checkbox" name="diseasesymptoms" id="DiseaseSymptoms-k" value="Evidence of insects">
            					<label for="DiseaseSymptoms-k">Evidence of insects - Insects present, eaten leaves, boreholes or tunnels</label>
 					    </fieldset>								
 					</div>
