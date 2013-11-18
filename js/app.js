@@ -323,7 +323,7 @@ function resetForm($form) {
     	.not('#contactfirstname, #contactsurname, #contactemail, #contactphone, #diseasecommonname, #treespecies')
     	.val('');
     $form.find('input:radio, input:checkbox')
-    	.not(''#cancontact')
+    	.not('#cancontact')
         .removeAttr('checked').removeAttr('selected').checkboxradio("refresh");
     $form.find('#diseasecommonname, #treespecies')
     	.selectmenu()
