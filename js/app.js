@@ -86,7 +86,11 @@ function successCBCounts(tx, results)
 function storeContact()
 {
 	var db = getDb();
-	db.transaction(function(tx){tx.executeSql('UPDATE CONTACT2 SET contactfirstname=?, contactsurname=?, contactemail=?, contactphone=?, cancontact=? WHERE id=1', [$('#contactfirstname').val(), $('#contactsurname').val(), $('#contactemail').val(), $('#contactphone').val(), $('#cancontact').val()]);}, errorCB, successCB);
+	var canContact = "";
+	if ($('#cancontact').prop('checked')) {
+		canContact = $('#cancontact').val();
+	}
+	db.transaction(function(tx){tx.executeSql('UPDATE CONTACT2 SET contactfirstname=?, contactsurname=?, contactemail=?, contactphone=?, cancontact=? WHERE id=1', [$('#contactfirstname').val(), $('#contactsurname').val(), $('#contactemail').val(), $('#contactphone').val(), canContact]);}, errorCB, successCB);
 }
 function getContact()
 {
