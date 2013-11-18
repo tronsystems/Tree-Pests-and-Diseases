@@ -104,6 +104,7 @@ function successCBContact(tx, results)
     	$('#contactsurname').val(results.rows.item(0).contactsurname);
     	$('#contactemail').val(results.rows.item(0).contactemail);
     	$('#contactphone').val(results.rows.item(0).contactphone);
+    	console.log("CanContact value: " + results.rows.item(0).cancontact);
     	if (results.rows.item(0).cancontact != "") {
     		$('#cancontact').prop('checked', true);
     	} else {
