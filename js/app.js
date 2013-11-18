@@ -106,10 +106,10 @@ function successCBContact(tx, results)
     	$('#contactphone').val(results.rows.item(0).contactphone);
     	console.log("CanContact value: " + results.rows.item(0).cancontact);
     	if (results.rows.item(0).cancontact != "") {
-    		$('#cancontact').prop('checked', true);
+    		$('#cancontact').prop('checked', true).checkboxradio("refresh");
     		console.log("set checkbox to checked.");
     	} else {
-    		$('#cancontact').prop('checked', false);
+    		$('#cancontact').prop('checked', false).checkboxradio("refresh");
     		console.log("set checkbox to unchecked.");
     	}
     	
